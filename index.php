@@ -10,7 +10,7 @@
     <h1>Projeto grupo 06</h1>
     <h1>Currículos</h1>
     <center>
-    <a href="curriculo-abrahao.php"><h2>Ver currículo do Abrahão</h2></a>
+    <a href="curriculo-abrahao.php"><h2>Ver currículo do Abrahão.</h2></a>
     <br>
     <br>
     <a href="curriculo-murillo.php"><h2>Ver currículo do Murillo</h2></a>
