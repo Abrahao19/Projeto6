@@ -17,7 +17,7 @@
 
     <hr>
 
-    <
+    
     <h2>Objetivo</h2>
     <p>Busco uma oportunidade de estágio em Desenvolvimento de Sistemas, com o objetivo de aplicar os conhecimentos adquiridos durante minha formação técnica, desenvolver minhas habilidades em programação e adquirir experiência profissional na área de tecnologia.</p>
 
