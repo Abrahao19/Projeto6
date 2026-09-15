@@ -113,6 +113,10 @@
 
   <footer>
     <p>Projeto grupo 06 — Git Club</p>
+    <a href="gitclub/inicio.html">
+    Acessar o Git Club <br>
+                      <br>
+    </a>
     <a href="curriculos.php" class="btn">Currículo dos colaboradores</a>
   </footer>
 
