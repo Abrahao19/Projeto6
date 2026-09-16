@@ -1,0 +1,33 @@
+body{
+margin: 0;
+
+}
+.texto_criar_conta{
+
+text-align: left; 
+    font-size: 30px;
+    position: absolute;
+    top: 10%;
+     left: 40%;
+    
+}
+
+.retangulo_criar_conta{
+  
+position: relative;
+  margin-top: 10%;
+  margin-left: 30%;
+    width: 50%;/*Largura do retangulo*/
+    height: 500px;
+  background-color: gray;
+
+}
+
+.voltar{
+text-align: left; 
+    font-size: 20px;
+    position: absolute;
+    top: 105%;
+     left: 10%;
+
+}
