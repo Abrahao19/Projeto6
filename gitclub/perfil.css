@@ -1,0 +1,40 @@
+body{
+    
+    margin: 0;
+    
+}
+
+.foto_perfil{/*circulo/quadrado onde sera colocado a foto de perfil*/
+position: absolute;
+    width: 80px;
+    height: 80px;
+  background-color: black;
+  border-radius: 30%;
+  left: 1%;
+  top: 2%;
+  z-index: 2;
+  
+}
+.perfil{/*Texto: foto de perfil(adicionado apenas para sinalizar onde sera a foto de perfil)*/
+    color: white;
+position: absolute;
+top: 5%;
+left: 1.1%;
+z-index: 3;
+transform: rotate(-40deg);/*Rotação da imagem*/
+}
+
+
+
+/*Barra superior*/
+.retangulo_inicio_perfil{
+     position: relative;
+    width: 100%;
+    height: 150px;
+  background-color: gray;
+  z-index: 1;
+}
+
+
+
+

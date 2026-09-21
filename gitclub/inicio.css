@@ -1,11 +1,22 @@
+
+
 body{
 background-color: white;
 margin: 0;
 }
 
+#nomeUsuario{
+text-align: left; 
+    font-size: 20px;
+    position: absolute;
+    top: 10%;
+     left: 35%;
+
+
+}
 .inicio{/* Texto de inicio*/
    text-align: left; 
-    font-size: 30px;
+    font-size: 50px;
     position: absolute;
     top: 50px;
      left: 50px;
@@ -28,6 +39,14 @@ margin: 0;
 
 
 }
+.deslogar{/* Sair da conta */
+    text-align: right;
+    font-size: 20px;
+    position: absolute;
+    top: 10%;
+     left: 95%;
+
+}
 
 
 .entrar{/* Entrar na conta */
@@ -38,5 +57,11 @@ margin: 0;
      left: 95%;
 
 }
+.perfil{
+    
+font-size: 15px;
+position: absolute;
+top:2%;
+left: 95%;
 
-
+}

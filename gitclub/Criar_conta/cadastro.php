@@ -1,29 +1,47 @@
 <?php
 
+session_start();
+
 include "conexao.php";
 
 $nome = $_POST["nome"];
 $email = $_POST["email"];
 $senha = $_POST["senha"];
 
-$sql = "INSERT INTO usuario (nome, email, senha)
-        VALUES ('$nome', '$email', '$senha')";
+// Cria um hash da senha (vai "embaralhar" a senha)
+$senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-if ($conexao->query($sql) === TRUE) {
 
-    echo "
-    <script>
-        localStorage.setItem('nomeUsuario', " . json_encode($nome) . ");
-        window.location.href = '../inicio.html';
-    </script>
-    ";
+$stmt = $conexao->prepare(
+    "INSERT INTO usuario (nome, email, senha)
+     VALUES (?, ?, ?)"
+);
+
+$stmt->bind_param("sss", $nome, $email, $senha_hash);
+
+if ($stmt->execute()) {
+
+    // pega o id do usuario que acabou de ser criado
+    $usuario_id = $conexao->insert_id;
+
+    // Cria a sessão do usuário
+    session_regenerate_id(true);
+
+    $_SESSION["usuario_id"] = $usuario_id;
+    $_SESSION["nome"] = $nome;
+    $_SESSION["email"] = $email;
+
+    // Vai direto para o início
+    header("Location: ../inicio.php");
+    exit();
 
 } else {
 
-    echo "Erro ao cadastrar: " . $conexao->error;
+    echo "Erro ao cadastrar: " . $stmt->error;
 
 }
 
+$stmt->close();
 $conexao->close();
 
 ?>
