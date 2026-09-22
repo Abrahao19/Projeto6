@@ -26,7 +26,7 @@
 
   <footer>
     <p>Projeto grupo 06 — Git Club</p>
-    <a href="index.html" class="btn">Voltar para o início</a>
+    <a href="index.php" class="btn">Voltar para o início</a>
   </footer>
 
 </body>

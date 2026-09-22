@@ -7,7 +7,17 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<form action="login.php" method="POST">
 
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <br><br>
   <header>
     <h1>Git Club</h1>
     <p>Plataforma de colaboração entre desenvolvedores</p>
@@ -113,10 +123,7 @@
 
   <footer>
     <p>Projeto grupo 06 — Git Club</p>
-    <a href="gitclub/inicio.php">
-    Acessar o Git Club <br>
-                      <br>
-    </a>
+    <a href="gitclub/inicio.php" class= "btn">Acessar o Git Club</a><br><br>
     <a href="curriculos.php" class="btn">Currículo dos colaboradores</a>
   </footer>
 
