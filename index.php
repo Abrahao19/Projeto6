@@ -38,6 +38,7 @@
         <li>Pesquisar usuários e tecnologias</li>
         <li>Sistema de reputação e conquistas</li>
       </ul>
+
     </div>
   </section>
 

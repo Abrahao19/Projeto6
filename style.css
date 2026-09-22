@@ -6,7 +6,7 @@ body {
   padding: 0;
   line-height: 1.65;
 }
-
+/*header é a "faixa verde" do começo da pagina*/
 header {
   background-color: #1f2937;
   background-image: linear-gradient(135deg, #1f2937, #2f6f4f);
@@ -14,12 +14,12 @@ header {
   text-align: center;
   padding: 60px 20px;
 }
-
+/*H1 do header*/
 header h1 {
   margin: 0 0 10px 0;
   font-size: 2.4rem;
 }
-
+/*p dentro do header*/
 header p {
   margin: 0;
   font-size: 1.1rem;
@@ -31,7 +31,7 @@ section {
   margin: 24px auto;
   padding: 0 20px;
 }
-
+/*card é a Classe para os "quadrados com texto*/
 .card {
   background-color: white;
   border-radius: 10px;
@@ -51,7 +51,7 @@ ul {
   padding-left: 20px;
   margin-bottom: 0;
 }
-
+/*classe pra estilização da lista*/
 li {
   margin-bottom: 8px;
 }
@@ -87,7 +87,7 @@ footer {
 footer p {
   margin: 0 0 16px 0;
 }
-
+/*Botão*/
 .btn {
   display: inline-block;
   padding: 12px 26px;
@@ -98,7 +98,7 @@ footer p {
   font-weight: bold;
   transition: background-color 0.2s ease;
 }
-
+/*botão de login*/
 .btnlogin {
   display: inline-block;
   padding: 12px 26px;
@@ -111,9 +111,7 @@ footer p {
   style:none
 }
 
-.btn:hover {
-  background-color: #3d8a63;
-}
+
 
 @media (max-width: 600px) {
   .reputacao {
