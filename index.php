@@ -7,20 +7,12 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<form action="login.php" method="POST">
 
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
-
-        <br><br>
-
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
-
-        <br><br>
   <header>
     <h1>Git Club</h1>
     <p>Plataforma de colaboração entre desenvolvedores</p>
+<br>
+     <a href=".php" class= "btnlogin">Acessar o Git Club</a><br><br>
   </header>
 
   <section>

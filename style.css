@@ -99,6 +99,18 @@ footer p {
   transition: background-color 0.2s ease;
 }
 
+.btnlogin {
+  display: inline-block;
+  padding: 12px 26px;
+  background-color: hsl(0, 0%, 100%);
+  color: #2a5e44;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  style:none
+}
+
 .btn:hover {
   background-color: #3d8a63;
 }
