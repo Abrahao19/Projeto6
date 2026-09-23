@@ -12,6 +12,20 @@
     <h1>Git Club</h1>
     <p>Plataforma de colaboração entre desenvolvedores</p>
 <br>
+
+        <a href="CriarConta2/criar_conta2.html">
+            <div class="btnlogin">
+                Cadastra-se
+            </div>
+        </a>
+
+
+        <a href="entrar_login/login.html">
+            <div class="btnlogin">
+                Entrar
+            </div>
+        </a>
+
      <a href=".php" class= "btnlogin">Acessar o Git Club</a><br><br>
   </header>
 
@@ -27,61 +41,34 @@
 
   <section>
     <div class="card">
-      <h2>Funcionalidades para usuários</h2>
-      <ul>
-        <li>Criar conta e entrar na conta</li>
-        <li>Seguir e ser seguido por outros usuários</li>
-        <li>Enviar mensagens diretas (DM)</li>
-        <li>Perfil profissional com biografia, habilidades e tecnologias</li>
-        <li>Portfólio com projetos em destaque</li>
-        <li>Conectar a conta ao GitHub</li>
-        <li>Pesquisar usuários e tecnologias</li>
-        <li>Sistema de reputação e conquistas</li>
-      </ul>
+      <h2></h2>
+      
+        
+      
 
     </div>
   </section>
 
   <section>
     <div class="card">
-      <h2>Funcionalidades para projetos</h2>
-      <ul>
-        <li>Publicar projetos públicos ou privados</li>
-        <li>Curtir, comentar e favoritar projetos</li>
-        <li>Adicionar colaboradores</li>
-        <li>Buscar projetos por tecnologia</li>
-        <li>Issues e Pull Requests</li>
-        <li>Histórico de commits e releases</li>
-        <li>README e estatísticas do projeto</li>
+      
+     
       </ul>
     </div>
   </section>
 
   <section>
     <div class="card">
-      <h2>Sistema de reputação</h2>
+    
       <div class="reputacao">
         <div class="ganha">
-          <p><strong>Ganha pontos quem:</strong></p>
-          <ul>
-            <li>Ajuda outras pessoas</li>
-            <li>Tem uma resposta aceita</li>
-            <li>Cria um projeto</li>
-            <li>Recebe curtidas e favoritos</li>
-            <li>Contribui em projetos</li>
-            <li>Corrige uma issue</li>
-          </ul>
+          
+         
         </div>
         <div class="perde">
-          <p><strong>Perde pontos quem:</strong></p>
+          
           <ul>
-            <li>Faz spam em publicações (-5 pontos)</li>
-            <li>Publica conteúdo repetido sem propósito (-3 pontos)</li>
-            <li>Tem uma resposta removida por violar regras (-5 pontos)</li>
-            <li>Comete ofensa ou assédio (-10 pontos)</li>
-            <li>Copia projeto sem dar crédito (-10 pontos)</li>
-            <li>Comete fraude de contribuição (-20 pontos)</li>
-            <li>Reincide em infrações (-50 pontos)</li>
+           
           </ul>
         </div>
       </div>
@@ -116,9 +103,11 @@
 
   <footer>
     <p>Projeto grupo 06 — Git Club</p>
-    <a href="gitclub/inicio.php" class= "btn">Acessar o Git Club</a><br><br>
+    
     <a href="curriculos.php" class="btn">Currículo dos colaboradores</a>
   </footer>
 
 </body>
 </html>
+
+
