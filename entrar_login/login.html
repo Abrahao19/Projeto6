@@ -2,39 +2,36 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="stylesheet" href="login.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar</title>
+    <title>Entrar — Git Club</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 
-<body> 
-<div class="retangulo_entrar_conta">
-          <div class="texto_entrar_conta2">
-          Entrar
-            <a href="../index.php">
-          <div class="voltar2">
-            Voltar
-            </a>
-          </div>
-          
-    
+<body>
 
-    <form action="login.php" method="POST">
+    <div class="pagina-autenticacao">
+        <div class="cartao-autenticacao">
 
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
+            <a href="../index.php" class="link-voltar link-voltar--destaque">&larr; Voltar</a>
 
-        <br><br>
+            <h1>Entrar</h1>
 
-        <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" required>
+            <form action="login.php" method="POST" class="formulario-autenticacao">
 
-        <br><br>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
 
-        <button type="submit">Entrar</button>
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required>
 
-    </form>
+                <button type="submit" class="botao-login botao-login--destaque">Entrar</button>
+
+            </form>
+
+        </div>
+    </div>
 
 </body>
 

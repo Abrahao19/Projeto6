@@ -1,124 +1,242 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+/* Paleta de cores e variáveis usadas no site inteiro */
+:root {
+  --cor-fundo: #0d0b18;          /* fundo principal (roxo quase preto) */
+  --cor-fundo-secao: #15122a;    /* fundo dos cartões e seções alternadas */
+  --cor-fundo-secao-alt: #1a1533;/* fundo levemente mais claro, pra alternar seções */
+  --cor-roxo: #9b5cf6;           /* roxo principal (títulos e ícones) */
+  --cor-roxo-forte: #7c3aed;     /* roxo mais escuro (parte do gradiente) */
+  --cor-rosa: #ec4899;           /* rosa (outra ponta do gradiente) */
+  --cor-azul: #3b82f6;           /* azul de apoio (links e detalhes) */
+  --cor-texto: #f3f1fb;          /* texto principal, quase branco */
+  --cor-texto-suave: #a9a3c2;    /* texto secundário, mais apagado */
+  --cor-borda: rgba(155, 92, 246, 0.25); /* borda sutil roxa */
+  --gradiente-destaque: linear-gradient(135deg, var(--cor-roxo-forte), var(--cor-rosa));
+  --raio-borda: 14px;
+}
+
+/* Reset e configuração básica da página */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-  background-color: #eef1f5;
-  color: #24292e;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
   margin: 0;
   padding: 0;
   line-height: 1.65;
 }
-/*header é a "faixa verde" do começo da pagina*/
-header {
-  background-color: #1f2937;
-  background-image: linear-gradient(135deg, #1f2937, #2f6f4f);
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-}
-/*H1 do header*/
-header h1 {
-  margin: 0 0 10px 0;
-  font-size: 2.4rem;
-}
-/*p dentro do header*/
-header p {
-  margin: 0;
-  font-size: 1.1rem;
-  color: #d7e4dc;
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  color: var(--cor-texto);
+  margin-top: 0;
 }
 
-section {
-  max-width: 720px;
-  margin: 24px auto;
+a {
+  color: var(--cor-azul);
+}
+
+/* ==========================================================
+   CABEÇALHO / HERÓI (topo roxo-escuro com o nome do site)
+   ========================================================== */
+.cabecalho-heroi {
+  background: radial-gradient(circle at top, #241a45 0%, var(--cor-fundo) 65%);
+  border-bottom: 1px solid var(--cor-borda);
+  text-align: center;
+  padding: 70px 20px 60px;
+}
+
+/* "</> Git Club" pequeno, no topo do herói */
+.logo-heroi {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--cor-roxo);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.cabecalho-heroi h1 {
+  font-size: 2.8rem;
+  margin: 18px 0 8px;
+}
+
+/* Subtítulo logo abaixo do título grande */
+.heroi-subtitulo {
+  color: var(--cor-texto-suave);
+  font-size: 1.1rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Linha com os botões de cadastro/login/acesso */
+.heroi-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+/* ==========================================================
+   BOTÕES
+   ========================================================== */
+
+/* Botão usado em "Cadastre-se", "Entrar" e "Acessar o Git Club" */
+.botao-login {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto);
+  background-color: transparent;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.botao-login:hover {
+  background-color: rgba(155, 92, 246, 0.12);
+}
+
+/* Variação com o gradiente roxo/rosa, pro botão principal de destaque */
+.botao-login--destaque {
+  background: var(--gradiente-destaque);
+  border: none;
+  color: white;
+}
+
+.botao-login--destaque:hover {
+  transform: translateY(-1px);
+}
+
+/* Botão simples de texto (ex: "Voltar para o início", currículos) */
+.botao {
+  display: inline-block;
+  padding: 12px 26px;
+  background: var(--gradiente-destaque);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.botao:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================
+   ESTRUTURA GERAL DAS SEÇÕES
+   ========================================================== */
+main {
+  max-width: 820px;
+  margin: 0 auto;
   padding: 0 20px;
 }
-/*card é a Classe para os "quadrados com texto*/
-.card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 28px 30px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+
+.secao {
+  margin: 60px 0;
 }
 
-h2 {
-  color: #1f2937;
-  margin-top: 0;
+/* Título de cada seção (ex: "Sobre o projeto", "Notificações") */
+.secao h2 {
+  font-size: 1.6rem;
+  color: var(--cor-roxo);
+  border-bottom: 2px solid var(--cor-borda);
   padding-bottom: 10px;
-  border-bottom: 3px solid #2f6f4f;
   display: inline-block;
+  margin-bottom: 18px;
+}
+
+/* Cartão escuro usado pra "encaixotar" conteúdo (ex: sobre o projeto) */
+.cartao {
+  background-color: var(--cor-fundo-secao);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 30px 32px;
+}
+
+.cartao p {
+  color: var(--cor-texto-suave);
 }
 
 ul {
   padding-left: 20px;
   margin-bottom: 0;
 }
-/*classe pra estilização da lista*/
+
 li {
+  margin-bottom: 8px;
+  color: var(--cor-texto-suave);
+}
+
+/* ==========================================================
+   BLOCOS DE DESTAQUE (as 3 chamadas: publicar, portfólio, base social)
+   ========================================================== */
+
+/* Cada bloco de texto (Publique seus projetos, Monte seu perfil, Construa sua base social) */
+.bloco-destaque {
+  text-align: center;
+  max-width: 480px;
+  margin: 60px auto;
+}
+
+.texto-destaque h3 {
+  color: var(--cor-roxo);
+  font-size: 1.3rem;
   margin-bottom: 8px;
 }
 
+.texto-destaque p {
+  color: var(--cor-texto-suave);
+  margin: 4px 0;
+}
+
+/* ==========================================================
+   SISTEMA DE REPUTAÇÃO (pontos que ganha/perde)
+   ========================================================== */
 .reputacao {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
 
+/* Coluna de quem ganha pontos */
 .reputacao .ganha {
-  border-left: 4px solid #2f6f4f;
+  border-left: 4px solid var(--cor-roxo);
   padding-left: 16px;
 }
 
+/* Coluna de quem perde pontos */
 .reputacao .perde {
-  border-left: 4px solid #c0392b;
+  border-left: 4px solid var(--cor-rosa);
   padding-left: 16px;
+}
+
+.reputacao h3 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
 }
 
 .reputacao p {
   margin-top: 0;
+  color: var(--cor-texto-suave);
 }
 
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  margin-top: 40px;
-  background-color: #1f2937;
-  color: white;
-}
+/* ==========================================================
+   PÁGINA DE CURRÍCULOS
+   ========================================================== */
 
-footer p {
-  margin: 0 0 16px 0;
-}
-/*Botão*/
-.btn {
-  display: inline-block;
-  padding: 12px 26px;
-  background-color: #2f6f4f;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-}
-/*botão de login*/
-.btnlogin {
-  display: inline-block;
-  padding: 12px 26px;
-  background-color: hsl(0, 0%, 100%);
-  color: #2a5e44;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-  style:none
-}
-
-
-
-@media (max-width: 600px) {
-  .reputacao {
-    grid-template-columns: 1fr;
-  }
-}
-
+/* Lista com os links pros currículos de cada colaborador */
 .lista-curriculos {
   list-style: none;
   padding: 0;
@@ -131,23 +249,61 @@ footer p {
 .lista-curriculos a {
   display: block;
   padding: 14px 18px;
-  background-color: #eef1f5;
+  background-color: var(--cor-fundo-secao-alt);
+  border: 1px solid var(--cor-borda);
   border-radius: 8px;
-  color: #1f2937;
+  color: var(--cor-texto);
   text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
+  font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .lista-curriculos a:hover {
-  background-color: #d7e4dc;
+  background-color: rgba(155, 92, 246, 0.12);
+  border-color: var(--cor-roxo);
 }
 
-.irAoClub{
-    text-align: center;
-    color: white;
-
+/* ==========================================================
+   RODAPÉ
+   ========================================================== */
+footer {
+  text-align: center;
+  padding: 50px 20px;
+  margin-top: 60px;
+  background-color: var(--cor-fundo-secao);
+  border-top: 1px solid var(--cor-borda);
+  color: var(--cor-texto-suave);
 }
 
+footer p {
+  margin: 0 0 16px 0;
+}
 
+/* Nome/logo pequeno que aparece no rodapé */
+.logo-rodape {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--cor-texto);
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 16px;
+}
 
+/* E-mail de contato no rodapé */
+.contato-rodape {
+  color: var(--cor-roxo);
+  text-decoration: none;
+}
+
+/* ==========================================================
+   RESPONSIVO (telas menores)
+   ========================================================== */
+@media (max-width: 600px) {
+  .reputacao {
+    grid-template-columns: 1fr;
+  }
+
+  .cabecalho-heroi h1 {
+    font-size: 2.1rem;
+  }
+}

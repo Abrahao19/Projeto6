@@ -1,40 +1,93 @@
-body{
-margin: 0;
 
-}
-.texto_entrar_conta2{
 
-text-align: left; 
-    font-size: 30px;
-    position: absolute;
-    top: 10%;
-     left: 40%;
-    
-}
-.texto_entrar_conta2{
-text-align: left; 
-    font-size: 30px;
-    position: absolute;
-    top: 10%;
-     left: 40%;
-
-}
-.retangulo_entrar_conta{
-  
-position: relative;
-  margin-top: 10%;
-  margin-left: 30%;
-    width: 50%;/*Largura do retangulo*/
-    height: 500px;
-  background-color: gray;
-
+body {
+  margin: 0;
 }
 
-.voltar2{
-text-align: left; 
-    font-size: 20px;
-    position: absolute;
-    top: 105%;
-     left: 10%;
+/* Fundo da página inteira, centraliza o cartão de login na tela */
+.pagina-autenticacao {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
 
+/* Cartão cinza-arredondado onde fica o formulário */
+.cartao-autenticacao {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background-color: var(--cor-fundo-secao);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 40px 32px 32px;
+}
+
+.cartao-autenticacao h1 {
+  font-size: 1.6rem;
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+/* Link "Voltar" no canto do cartão */
+.link-voltar {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto);
+  background-color: transparent;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.link-voltar--destaque{
+   background: var(--gradiente-destaque);
+  border: none;
+  color: white;
+}
+
+.link-voltar:hover {
+  color: var(--cor-roxo);
+}
+
+/* Formulário: campos empilhados com espaçamento entre eles */
+.formulario-autenticacao {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formulario-autenticacao label {
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  margin-top: 12px;
+}
+
+/* Caixas de texto (e-mail e senha) */
+.formulario-autenticacao input {
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: var(--cor-texto);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+}
+
+.formulario-autenticacao input:focus {
+  outline: none;
+  border-color: var(--cor-roxo);
+}
+
+/* Botão de enviar o formulário (reaproveita o estilo do botão em destaque) */
+.formulario-autenticacao button {
+  margin-top: 26px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  width: 100%;
+  border: none;
 }
