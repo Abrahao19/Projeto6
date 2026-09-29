@@ -14,7 +14,7 @@
     <p class="heroi-subtitulo">Plataforma de colaboração entre desenvolvedores</p>
 
     <div class="heroi-botoes">
-      <a href="login.php" class="botao-login botao-login--destaque">Acessar o Git Club</a>
+      <a href="feed.php" class="botao-login botao-login--destaque">Acessar o Git Club</a>
     </div>
   </header>
 
