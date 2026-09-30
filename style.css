@@ -41,9 +41,7 @@ a {
   color: var(--cor-azul);
 }
 
-/* ==========================================================
-   CABEÇALHO / HERÓI (topo roxo-escuro com o nome do site)
-   ========================================================== */
+/*CABEÇALHO / HERÓI (topo roxo-escuro com o nome do site) */
 .cabecalho-heroi {
   background: radial-gradient(circle at top, #241a45 0%, var(--cor-fundo) 65%);
   border-bottom: 1px solid var(--cor-borda);
