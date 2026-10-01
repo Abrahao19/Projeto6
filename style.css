@@ -83,12 +83,44 @@ a {
   margin-top: 30px;
 }
 
+/*
+.heroi-botoes-voltar-canto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 30px;
+}
+*/
+
+
+
+
+
+
 /* ==========================================================
    BOTÕES
    ========================================================== */
 
 /* Botão usado em "Cadastre-se", "Entrar" e "Acessar o Git Club" */
 .botao-login {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto);
+  background-color: transparent;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.botao-voltar-canto {
+position: absolute;
+left: 2%;
+top: 3%;
+
   display: inline-block;
   padding: 12px 26px;
   border-radius: 999px;
