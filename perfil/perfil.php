@@ -1,101 +1,264 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesse o Gitclub</title>
+
+    <title>Git Club - Perfil</title>
+
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+
+    <!-- ==================================================
+         CABEÇALHO
+    =================================================== -->
+
     <header class="cabecalho-heroi">
-    <span class="logo-heroi">Git Club</span>
-      
-    <h1>Perfil</h1>
 
-<div class="botao-login">
-<a href="../projetos/projetos.php">Projetos</a>    
-</div>
+        <!-- LOGO -->
 
-
-<div class="botao-login"> 
-    <a href="../comentarios/comentarios.php">Comentarios</a> 
-</div>
+        <div class="logo-heroi">
+            <span>Git</span> Club
+        </div>
 
 
-<div class="botao-login">
-   <a href="../curtidas/curtidas.php">Curtidas</a>
-</div>
+        <!-- MENU -->
+
+        <nav class="menu-navegacao">
+
+            <a href="../projetos/projetos.php">
+                Projetos
+            </a>
+
+            <a href="../comentarios/comentarios.php">
+                Comentários
+            </a>
+
+            <a href="../curtidas/curtidas.php">
+                Curtidas
+            </a>
+
+            <a href="../seguidores/seguidores.php">
+                Seguidores
+            </a>
+
+            <a href="../seguindo/seguindo.php">
+                Seguindo
+            </a>
+
+            <a href="../colab/Colaboradores.php">
+                Colaboradores
+            </a>
+
+            <a href="../posts/postagens.php">
+                Postagens
+            </a>
+
+            <!-- PÁGINA ATUAL -->
+
+            <a href="../perfil/perfil.php" class="ativo">
+                Perfil
+            </a>
+
+        </nav>
 
 
-<div class="botao-login">
-   <a href="../seguidores/seguidores.php">Seguidores</a>
-</div>
+        <!-- VOLTAR -->
 
+        <div class="acoes-header">
 
-<div class="botao-login">
-   <a href="../seguindo/seguindo.php">Seguindo</a>
-</div>
+            <a href="../feed.php" class="botao-voltar">
+                ← Voltar
+            </a>
 
-
-<div class="botao-login">
-    <a href="../colab/Colaboradores.php">Colaboradores</a>
-</div>
-
-
-<div class="botao-login">
-    <a href="../posts/postagens.php">Postagens</a>
-</div>
-
-
-<div class="heroi-botoes">
-<a href="../feed.php" class="botao-voltar-canto">Voltar</a>  
-</div>
-<div class="botao-login">
-    <a href="../perfil/perfil.php">Perfil</a>
-</div>
-
+        </div>
 
     </header>
-     
 
 
 
+    <!-- ==================================================
+         CONTEÚDO
+    =================================================== -->
+
+    <main class="conteudo">
+
+
+        <!-- TÍTULO -->
+
+        <div class="titulo-pagina">
+
+            <span class="icone">
+                👤
+            </span>
+
+            <div>
+
+                <h1>Meu Perfil</h1>
+
+                <p>
+                    Visualize suas informações e seus projetos.
+                </p>
+
+            </div>
+
+        </div>
 
 
 
+        <!-- ==================================================
+             PERFIL
+        =================================================== -->
+
+        <section class="perfil-container">
+
+
+            <!-- CARTÃO PRINCIPAL -->
+
+            <div class="perfil-card">
+
+
+                <!-- FOTO / AVATAR -->
+
+                <div class="perfil-avatar">
+                    JS
+                </div>
+
+
+                <!-- INFORMAÇÕES -->
+
+                <div class="perfil-informacoes">
+
+                    <h2>
+                        Josney Silva
+                    </h2>
+
+                    <span class="perfil-usuario">
+                        @Josney556
+                    </span>
+
+                    <p class="perfil-bio">
+                        Estou fazendo uns cursos aí e
+                        desenvolvendo alguns projetos.
+                    </p>
+
+                    <div class="perfil-detalhes">
+
+                        <span>
+                            📍 SP
+                        </span>
+
+                        <span>
+                            ✉️ josneysilva@etc.com
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
 
-   <div class="cartao-perfil"></div>
-<div class="foto-perfil"></div>
-<div class="info-perfil">
-    Josney Silva556<br>
-    Josney 556<br><br>
+            <!-- ==================================================
+                 PROJETOS
+            =================================================== -->
 
-    Estou fazendo uns cursos ai<br><br>
-    SP<br><br>
-    josneysilva@etc.com
-    
-</div>
-<div class="projetos-perfil">Projetos</div>
+            <div class="perfil-projetos">
 
 
-<div class="quad-perfil-projeto">GTA67</div>
+                <div class="perfil-projetos-titulo">
+
+                    <h2>
+                        Meus Projetos
+                    </h2>
+
+                    <span>
+                        2 projetos
+                    </span>
+
+                </div>
 
 
-<div class="quad-perfil-projeto2">Minicraft 2</div>
+                <div class="perfil-projetos-grid">
 
 
-<div class="ver-mais-projetos">
-<a href="../projetos/projetos.php">Ver mais projetos</a>
+                    <!-- PROJETO GTA -->
+
+                    <div class="perfil-projeto-card">
+
+                        <div class="perfil-projeto-icone">
+                            🚗
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                GTA 6
+                            </h3>
+
+                            <p>
+                                Projeto privado.
+                            </p>
+
+                            <span class="status privado">
+                                🔒 Privado
+                            </span>
+
+                        </div>
+
+                    </div>
 
 
+                    <!-- PROJETO MINICRAFT -->
+
+                    <div class="perfil-projeto-card">
+
+                        <div class="perfil-projeto-icone">
+                            🎮
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Minecraft 2
+                            </h3>
+
+                            <p>
+                                Projeto público.
+                            </p>
+
+                            <span class="status publico">
+                                🔓 Público
+                            </span>
+
+                        </div>
+
+                    </div>
 
 
+                </div>
 
 
-</div>
+                <!-- VER MAIS -->
+
+                <a
+                    href="../projetos/projetos.php"
+                    class="ver-projetos"
+                >
+                    Ver todos os projetos →
+                </a>
 
 
+            </div>
+
+        </section>
+
+    </main>
 
 </body>
+
+</html>

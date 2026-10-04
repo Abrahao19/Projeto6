@@ -1,61 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesse o Gitclub</title>
+    <title>Git Club - Seguindo</title>
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
-    <header class="cabecalho-heroi">
-    <span class="logo-heroi">Git Club</span>
-   
-    <h1>Seguindo</h1>
 
-    
-<div class="botao-login">
-<a href="../projetos/projetos.php">Projetos</a>    
-</div>
+<header class="cabecalho-heroi">
 
+    <div class="logo-heroi">
+        <span>Git</span> Club
+    </div>
 
-<div class="botao-login"> 
-    <a href="../comentarios/comentarios.php">Comentarios</a> 
-</div>
+    <nav class="menu-navegacao">
 
+        <a href="../projetos/projetos.php">Projetos</a>
 
-<div class="botao-login">
-   <a href="../curtidas/curtidas.php">Curtidas</a>
-</div>
+        <a href="../comentarios/comentarios.php">Comentários</a>
 
+        <a href="../curtidas/curtidas.php">Curtidas</a>
 
-<div class="botao-login">
-   <a href="../seguidores/seguidores.php">Seguidores</a>
-</div>
+        <a href="../seguidores/seguidores.php">Seguidores</a>
 
+        <a href="../seguindo/seguindo.php" class="ativo">Seguindo</a>
 
-<div class="botao-login">
-   <a href="../seguindo/seguindo.php">Seguindo</a>
-</div>
+        <a href="../colab/Colaboradores.php">Colaboradores</a>
 
+        <a href="../posts/postagens.php">Postagens</a>
 
-<div class="botao-login">
-    <a href="../colab/Colaboradores.php">Colaboradores</a>
-</div>
+        <a href="../perfil/perfil.php">Perfil</a>
 
+    </nav>
 
-<div class="botao-login">
-    <a href="../posts/postagens.php">Postagens</a>
-</div>
+    <div class="acoes-header">
+        <a href="../feed.php" class="botao-voltar">
+            ← Voltar
+        </a>
+    </div>
 
+</header>
 
-<div class="heroi-botoes">
-<a href="../feed.php" class="botao-voltar-canto">Voltar</a>  
-</div>
-<div class="botao-login">
-    <a href="../perfil/perfil.php">Perfil</a>
-</div>
+<main class="conteudo">
 
+    <div class="titulo-pagina">
+        <span class="icone">👥</span>
+        <div>
+            <h1>Seguindo</h1>
+            <p>Veja as pessoas e projetos que você acompanha.</p>
+        </div>
+    </div>
 
-    </header>
+    <!-- Seu conteúdo da página entra aqui -->
 
- 
+</main>
+
+</body>
+</html>

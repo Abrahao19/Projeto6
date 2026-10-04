@@ -1,75 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesse o Gitclub</title>
+
+    <title>Git Club - Projetos</title>
+
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+
     <header class="cabecalho-heroi">
-    <span class="logo-heroi">Git Club</span>
- 
-    <h1>Projetos</h1>
 
-    
-<div class="botao-login">
-<a href="../projetos/projetos.php">Projetos</a>    
-</div>
+        <!-- LOGO -->
+        <div class="logo-heroi">
+            <span>Git</span> Club
+        </div>
 
 
-<div class="botao-login"> 
-    <a href="../comentarios/comentarios.php">Comentarios</a> 
-</div>
+        <!-- MENU -->
+        <nav class="menu-navegacao">
+
+            <a href="../projetos/projetos.php" class="ativo">
+                Projetos
+            </a>
+
+            <a href="../comentarios/comentarios.php">
+                Comentários
+            </a>
+
+            <a href="../curtidas/curtidas.php">
+                Curtidas
+            </a>
+
+            <a href="../seguidores/seguidores.php">
+                Seguidores
+            </a>
+
+            <a href="../seguindo/seguindo.php">
+                Seguindo
+            </a>
+
+            <a href="../colab/Colaboradores.php">
+                Colaboradores
+            </a>
+
+            <a href="../posts/postagens.php">
+                Postagens
+            </a>
+
+            <a href="../perfil/perfil.php">
+                Perfil
+            </a>
+
+        </nav>
 
 
-<div class="botao-login">
-   <a href="../curtidas/curtidas.php">Curtidas</a>
-</div>
+        <!-- BOTÃO VOLTAR -->
+        <div class="acoes-header">
+
+            <a href="../feed.php" class="botao-voltar">
+                ← Voltar
+            </a>
+
+        </div>
+
+    </header>
 
 
-<div class="botao-login">
-   <a href="../seguidores/seguidores.php">Seguidores</a>
-</div>
+    <!-- =========================
+         CONTEÚDO
+    ========================== -->
+
+    <main class="conteudo">
+
+        <!-- TÍTULO -->
+
+        <div class="titulo-pagina">
+
+            <span class="icone">
+                💻
+            </span>
+
+            <div>
+
+                <h1>Projetos</h1>
+
+                <p>
+                    Confira os projetos publicados no Git Club.
+                </p>
+
+            </div>
+
+        </div>
 
 
-<div class="botao-login">
-   <a href="../seguindo/seguindo.php">Seguindo</a>
-</div>
+        <!-- =========================
+             PROJETOS
+        ========================== -->
+
+        <section class="projetos-lista">
 
 
-<div class="botao-login">
-    <a href="../colab/Colaboradores.php">Colaboradores</a>
-</div>
+            <!-- PROJETO 1 -->
+
+            <div class="projeto-card">
+
+                <div class="projeto-icone">
+                    🎮
+                </div>
+
+                <div class="projeto-info">
+
+                    <h2>Minecraft 2</h2>
+
+                    <p>
+                        Projeto de desenvolvimento de jogo.
+                    </p>
+
+                    <span class="status publico">
+                        🔓 Público
+                    </span>
+
+                </div>
+
+            </div>
 
 
-<div class="botao-login">
-    <a href="../posts/postagens.php">Postagens</a>
-</div>
+            <!-- PROJETO 2 -->
+
+            <div class="projeto-card">
+
+                <div class="projeto-icone">
+                    🚗
+                </div>
+
+                <div class="projeto-info">
+
+                    <h2>GTA 6</h2>
+
+                    <p>
+                        Projeto privado em desenvolvimento.
+                    </p>
+
+                    <span class="status privado">
+                        🔒 Privado
+                    </span>
+
+                </div>
+
+            </div>
 
 
-<div class="heroi-botoes">
-<a href="../feed.php" class="botao-voltar-canto">Voltar</a>  
-</div>
-<div class="botao-login">
-    <a href="../perfil/perfil.php">Perfil</a>
-</div>
-</header>
+        </section>
 
-<div class="quad-projeto">
-    Minicraft 2<br><br>
-    Publico
-</div>
-
-
-<div class="quad-projeto2">
-  GTA67<br><br>
-    Privado
-</div>
-
-
-
-
-
+    </main>
 
 </body>
+
+</html>

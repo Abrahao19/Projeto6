@@ -1,62 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesse o Gitclub</title>
+
+    <title>Git Club - Comentários</title>
+
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+
+    <!-- ==================================================
+         CABEÇALHO
+    =================================================== -->
+
     <header class="cabecalho-heroi">
-    <span class="logo-heroi">Git Club</span>
-  
-    <h1>Comentarios</h1>
 
-    
-<div class="botao-login">
-<a href="../projetos/projetos.php">Projetos</a>    
-</div>
+        <!-- LOGO -->
+
+        <div class="logo-heroi">
+            <span>Git</span> Club
+        </div>
 
 
-<div class="botao-login"> 
-    <a href="../comentarios/comentarios.php">Comentarios</a> 
-</div>
+        <!-- MENU -->
+
+        <nav class="menu-navegacao">
+
+            <a href="../projetos/projetos.php">
+                Projetos
+            </a>
+
+            <!-- PÁGINA ATUAL -->
+
+            <a href="../comentarios/comentarios.php" class="ativo">
+                Comentários
+            </a>
+
+            <a href="../curtidas/curtidas.php">
+                Curtidas
+            </a>
+
+            <a href="../seguidores/seguidores.php">
+                Seguidores
+            </a>
+
+            <a href="../seguindo/seguindo.php">
+                Seguindo
+            </a>
+
+            <a href="../colab/Colaboradores.php">
+                Colaboradores
+            </a>
+
+            <a href="../posts/postagens.php">
+                Postagens
+            </a>
+
+            <a href="../perfil/perfil.php">
+                Perfil
+            </a>
+
+        </nav>
 
 
-<div class="botao-login">
-   <a href="../curtidas/curtidas.php">Curtidas</a>
-</div>
+        <!-- BOTÃO VOLTAR -->
 
+        <div class="acoes-header">
 
-<div class="botao-login">
-   <a href="../seguidores/seguidores.php">Seguidores</a>
-</div>
+            <a href="../feed.php" class="botao-voltar">
+                ← Voltar
+            </a>
 
-
-<div class="botao-login">
-   <a href="../seguindo/seguindo.php">Seguindo</a>
-</div>
-
-
-<div class="botao-login">
-    <a href="../colab/Colaboradores.php">Colaboradores</a>
-</div>
-
-
-<div class="botao-login">
-    <a href="../posts/postagens.php">Postagens</a>
-</div>
-
-
-<div class="heroi-botoes">
-<a href="../feed.php" class="botao-voltar-canto">Voltar</a>  
-</div>
-<div class="botao-login">
-    <a href="../perfil/perfil.php">Perfil</a>
-</div>
-
+        </div>
 
     </header>
 
- 
-</body>
+
+
+    <!-- ==================================================
+         CONTEÚDO
+    =================================================== -->
+
+    <main class="conteudo">
+
+
+        <!-- TÍTULO -->
+
+        <div class="titulo-pagina">
+
+            <span class="icone">
+                💬
+            </span>
+
+            <div>
+
+                <h1>Comentários</h1>
+
+                <p>
+                    Veja os comentários feitos nas suas publicações.
+                </p>
+
+            </div>
+
+        </div>

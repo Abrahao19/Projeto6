@@ -1,61 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acesse o Gitclub</title>
+
+    <title>Git Club - Colaboradores</title>
+
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+
     <header class="cabecalho-heroi">
-    <span class="logo-heroi">Git Club</span>
 
-    <h1>Colaboradores</h1>
+        <!-- Logo -->
+        <div class="logo-heroi">
+            Git Club
+        </div>
 
-    
-<div class="botao-login">
-<a href="../projetos/projetos.php">Projetos</a>    
-</div>
+        <!-- Navegação -->
+        <nav class="menu-navegacao" aria-label="Navegação principal">
 
+            <a href="../projetos/projetos.php">
+                Projetos
+            </a>
 
-<div class="botao-login"> 
-    <a href="../comentarios/comentarios.php">Comentarios</a> 
-</div>
+            <a href="../comentarios/comentarios.php">
+                Comentários
+            </a>
 
+            <a href="../curtidas/curtidas.php">
+                Curtidas
+            </a>
 
-<div class="botao-login">
-   <a href="../curtidas/curtidas.php">Curtidas</a>
-</div>
+            <a href="../seguidores/seguidores.php">
+                Seguidores
+            </a>
 
+            <a href="../seguindo/seguindo.php">
+                Seguindo
+            </a>
 
-<div class="botao-login">
-   <a href="../seguidores/seguidores.php">Seguidores</a>
-</div>
+            <a href="../colab/Colaboradores.php" class="ativo">
+                Colaboradores
+            </a>
 
+            <a href="../posts/postagens.php">
+                Postagens
+            </a>
 
-<div class="botao-login">
-   <a href="../seguindo/seguindo.php">Seguindo</a>
-</div>
+            <a href="../perfil/perfil.php">
+                Perfil
+            </a>
 
+        </nav>
 
-<div class="botao-login">
-    <a href="../colab/Colaboradores.php">Colaboradores</a>
-</div>
+        <!-- Ações do cabeçalho -->
+        <div class="acoes-header">
 
+            <a href="../feed.php" class="botao-voltar">
+                ← Voltar
+            </a>
 
-<div class="botao-login">
-    <a href="../posts/postagens.php">Postagens</a>
-</div>
-
-
-<div class="heroi-botoes">
-<a href="../feed.php" class="botao-voltar-canto">Voltar</a>  
-</div>
-
-<div class="botao-login">
-    <a href="../perfil/perfil.php">Perfil</a>
-</div>
+        </div>
 
     </header>
 
- 
+
+    <main class="conteudo">
+
+        <section class="titulo-pagina">
+
+            <div class="icone">
+                👥
+            </div>
+
+            <div>
+                <h1>Colaboradores</h1>
+
+                <p>
+                    Veja os colaboradores e pessoas que fazem parte do Git Club.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- Seu conteúdo de colaboradores pode entrar aqui -->
+
+    </main>
+
+</body>
+
+</html>
