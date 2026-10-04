@@ -16,27 +16,33 @@
       <a href="CriarConta2/criar_conta2.html" class="botao-login">Cadastre-se</a>
       <a href="entrar_login/login.html" class="botao-login">Entrar</a>
     </div>
+
+  <a href="index.php" class="botao-voltar-canto">Voltar</a>  
+
+
+
     </header>
 
     <main>
 
     <section class="secao">
-      <div class="cartao">
-        <h2>Sobre o projeto</h2>
-        <p>
-          O Git Club é uma plataforma web para desenvolvedores compartilharem projetos,
-          trocarem conhecimento e formarem equipes de trabalho, com integração ao GitHub.
-        </p>
-      </div>
-    </section>
 
-    <section class="secao">
+    
+      <div class="cartao">
+       
+
+
+
+
+
+    </section>
+<section class="secao">
+   
       <div class="cartao">
         <div class="texto-destaque">
-          <h3>Publique seus projetos</h3>
-          <p>Publique projetos públicos ou privados, adicione colaboradores e busque projetos por tecnologia.</p>
-          <p>Curta, comente e favorite os projetos de outros desenvolvedores.</p>
-        </div>
-      </div>
+
+      </div>  
+     </section>
+     
 </body>
 </html>
