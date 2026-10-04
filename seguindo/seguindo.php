@@ -18,19 +18,12 @@
     <nav class="menu-navegacao">
 
         <a href="../projetos/projetos.php">Projetos</a>
-
         <a href="../comentarios/comentarios.php">Comentários</a>
-
         <a href="../curtidas/curtidas.php">Curtidas</a>
-
         <a href="../seguidores/seguidores.php">Seguidores</a>
-
         <a href="../seguindo/seguindo.php" class="ativo">Seguindo</a>
-
         <a href="../colab/Colaboradores.php">Colaboradores</a>
-
         <a href="../posts/postagens.php">Postagens</a>
-
         <a href="../perfil/perfil.php">Perfil</a>
 
     </nav>
