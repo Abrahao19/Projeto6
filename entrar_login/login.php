@@ -1,56 +1,75 @@
-```php
 <?php
-
 session_start();
 
-include "../Criar_conta/conexao.php";
+$email_correto = "josney@etc.com";
+$senha_correta = "123";
 
-$email = $_POST["email"];
-$senha = $_POST["senha"];
+$erro = "";
 
-// Prepared Statement para evitar SQL Injection
-$stmt = $conexao->prepare(
-    "SELECT * FROM usuario WHERE email = ?"
-);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-$stmt->bind_param("s", $email);
-$stmt->execute();
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
 
-$resultado = $stmt->get_result();
+    if ($email === $email_correto && $senha === $senha_correta) {
 
-if ($resultado->num_rows > 0) {
+        $_SESSION["logado"] = true;
+        $_SESSION["email"] = $email;
 
-    $usuario = $resultado->fetch_assoc();
-
-    // Verifica a senha digitada contra o hash salvo no banco
-    if (password_verify($senha, $usuario["senha"])) {
-
-        // Cria uma nova sessão
-        session_regenerate_id(true);
-
-        // Salva os dados do usuário na sessão
-        $_SESSION["usuario_id"] = $usuario["id"];
-        $_SESSION["nome"] = $usuario["nome"];
-        $_SESSION["email"] = $usuario["email"];
-
-        // Vai para a página inicial
-        header("Location: ../inicio.php");
-        exit();
+        header("Location: ../perfil/perfil.php");
+        exit;
 
     } else {
-
-        echo "E-mail ou senha incorretos.";
-
+        $erro = "E-mail ou senha incorretos.";
     }
-
-} else {
-
-    echo "E-mail ou senha incorretos.";
-
 }
-
-$stmt->close();
-$conexao->close();
-
 ?>
-```
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar — Git Club</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <div class="pagina-autenticacao">
+        <div class="cartao-autenticacao">
+
+            <a href="../feed.php" class="link-voltar link-voltar--destaque">
+                &larr; Voltar
+            </a>
+
+            <h1>Entrar</h1>
+
+            <?php if ($erro): ?>
+                <p class="mensagem-erro">
+                    <?php echo $erro; ?>
+                </p>
+            <?php endif; ?>
+
+            <form action="login.php" method="POST" class="formulario-autenticacao">
+
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" required>
+
+                <button type="submit" class="botao-login botao-login--destaque">
+                    Entrar
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>

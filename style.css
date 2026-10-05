@@ -408,6 +408,25 @@ main {
   top: 56%;
   left: 33.5%;
 }
+.area-comentario{
+ margin-top: 100px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+
+}
+
+/*Tira a cor azul do texto quando e utilizado o href*/
+a { 
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
+
 /* ==========================================================
    CARTÃO DE PERFIL
    ========================================================== */

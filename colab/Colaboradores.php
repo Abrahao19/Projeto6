@@ -59,7 +59,7 @@
         <!-- Ações do cabeçalho -->
         <div class="acoes-header">
 
-            <a href="../feed.php" class="botao-voltar">
+            <a href="../publicacoes.php" class="botao-voltar">
                 ← Voltar
             </a>
 

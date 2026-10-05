@@ -71,7 +71,7 @@
                 </a>
 
                 <a
-                    href="entrar_login/login.html"
+                    href="entrar_login/login.php"
                     class="botao-login"
                 >
                     Entrar
