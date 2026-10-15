@@ -1,3 +1,58 @@
+
+<?php
+session_start();
+
+// Verifica se o usuário está conectado
+if (!isset($_SESSION["usuario_id"])) {
+    header("Location: ../CriarConta2/login.php");
+    exit();
+}
+
+// Conexão com o banco
+// Ajuste o caminho se necessário para o seu projeto.
+include "../CriarConta2/conexao.php";
+
+$usuario_id = $_SESSION["usuario_id"];
+
+// Busca os dados da conta
+$stmt = $conexao->prepare(
+    "SELECT nome, email
+     FROM usuario
+     WHERE id = ?"
+);
+
+$stmt->bind_param("i", $usuario_id);
+$stmt->execute();
+
+$resultado = $stmt->get_result();
+$usuario = $resultado->fetch_assoc();
+$stmt->close();
+
+// Busca os dados do perfil
+$stmt = $conexao->prepare(
+    "SELECT foto, bio, github, visibilidade
+     FROM perfil
+     WHERE usuario_id = ?"
+);
+
+$stmt->bind_param("i", $usuario_id);
+$stmt->execute();
+
+$resultado = $stmt->get_result();
+$perfil = $resultado->fetch_assoc();
+$stmt->close();
+
+$nome = $usuario["nome"] ?? "Usuário";
+$email = $usuario["email"] ?? "";
+$bio = $perfil["bio"] ?? "Adicione uma biografia ao seu perfil.";
+$foto = $perfil["foto"] ?? "";
+$github = $perfil["github"] ?? "";
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -120,42 +175,56 @@
 
             <div class="perfil-card">
 
-
+<div class="perfil-avatar">
+    <?php if (!empty($foto)): ?>
+        <img
+            src="<?= htmlspecialchars($foto, ENT_QUOTES, 'UTF-8') ?>?v=<?= time() ?>"
+            alt="Foto de perfil"
+        >
+    <?php else: ?>
+        <?= htmlspecialchars(strtoupper(substr($nome, 0, 2)), ENT_QUOTES, 'UTF-8') ?>
+    <?php endif; ?>
+</div>
                 <!-- FOTO / AVATAR -->
 
-                <div class="perfil-avatar">
-                    JS
-                </div>
-
+                
 
                 <!-- INFORMAÇÕES -->
 
                 <div class="perfil-informacoes">
 
                     <h2>
-                        Josney Silva
+                         <?= htmlspecialchars($nome, ENT_QUOTES, "UTF-8") ?>
                     </h2>
 
                     <span class="perfil-usuario">
-                        @Josney556
+                        <?= htmlspecialchars($_SESSION["email"], ENT_QUOTES, "UTF-8") ?>
                     </span>
 
                     <p class="perfil-bio">
-                        Estou fazendo uns cursos aí e
-                        desenvolvendo alguns projetos.
+                       <?= htmlspecialchars($bio, ENT_QUOTES, "UTF-8") ?>
                     </p>
 
-                    <div class="perfil-detalhes">
+                   <div class="perfil-detalhes">
+    <span>
+        ✉️ <?= htmlspecialchars($email, ENT_QUOTES, "UTF-8") ?>
+    </span>
 
-                        <span>
-                            📍 SP
-                        </span>
+    <?php if ($github !== ""): ?>
+        <span>
+            GitHub:
+            <a href="<?= htmlspecialchars($github, ENT_QUOTES, "UTF-8") ?>">
+                <?= htmlspecialchars($github, ENT_QUOTES, "UTF-8") ?>
+            </a>
+        </span>
+    <?php endif; ?>
+</div>
 
-                        <span>
-                            ✉️ josneysilva@etc.com
-                        </span>
 
-                    </div>
+
+<a href="editar_perfil.php" class="ver-projetos">
+    ✏️ Editar perfil
+</a>
 
                 </div>
 

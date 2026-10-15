@@ -64,14 +64,14 @@
             <div class="heroi-botoes">
 
                 <a
-                    href="CriarConta2/criar_conta2.html"
+                    href="CriarConta2/criar_conta2.php"
                     class="botao-login botao-principal"
                 >
                     Criar minha conta
                 </a>
 
                 <a
-                    href="entrar_login/login.php"
+                    href="CriarConta2/login.php"
                     class="botao-login"
                 >
                     Entrar

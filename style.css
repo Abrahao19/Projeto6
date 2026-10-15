@@ -1094,6 +1094,44 @@ rgba(21, 18, 42, 0.96)
    CARD PRINCIPAL DO PERFIL
    ========================================================== */
 
+
+
+
+.perfil-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.perfil-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .perfil-card {
     display: flex;
     align-items: center;
