@@ -31,6 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $bio = trim($_POST["bio"] ?? "");
     $github = trim($_POST["github"] ?? "");
     $foto = $fotoAtual;
+    $removerFoto = isset($_POST["remover_foto"])
+    && $_POST["remover_foto"] === "1";
+
+    if ($removerFoto) {
+    $foto = "";
+    }
     $visibilidade = $_POST["visibilidade"] ?? "publico";
 
     if (!in_array($visibilidade, ["publico", "privado"], true)) {
@@ -38,10 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Verificar envio de uma nova foto
-    if (
+        if (
+        !$removerFoto &&
         isset($_FILES["foto"]) &&
         $_FILES["foto"]["error"] !== UPLOAD_ERR_NO_FILE
-    ) {
+        ) {
         if ($_FILES["foto"]["error"] !== UPLOAD_ERR_OK) {
             $erro = "Erro ao enviar a imagem.";
         } elseif ($_FILES["foto"]["size"] > 2 * 1024 * 1024) {
@@ -214,7 +221,16 @@ $visibilidade = $perfil["visibilidade"] ?? "publico";
                     <label for="foto" class="botao-escolher-foto">
                         Escolher imagem
                     </label>
-
+                    <?php if (!empty($foto)): ?>
+                    <label class="botao-remover-foto">
+                    <input
+                    type="checkbox"
+                    name="remover_foto"
+                    value="1"
+                    >
+                     Remover foto atual
+                    </label>
+                    <?php endif; ?>
                     <small>JPG, PNG ou WebP. Tamanho máximo: 2 MB.</small>
                 </div>
 
