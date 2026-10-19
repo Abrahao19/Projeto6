@@ -1,0 +1,643 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ==========================================================
+   PÁGINA DE POSTAGENS — GIT CLUB
+   ========================================================== */
+
+.conteudo {
+    width: min(1000px, calc(100% - 32px));
+    margin: 40px auto;
+    padding-bottom: 50px;
+    color: var(--cor-texto, #f3f1fb);
+    font-family: 'Inter', sans-serif;
+}
+
+/* ==========================================================
+   TÍTULO DA PÁGINA
+   ========================================================== */
+
+.titulo-pagina {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 25px;
+    margin-bottom: 30px;
+    background: linear-gradient(145deg, #1a1533, #15122a);
+    border: 1px solid var(--cor-borda, rgba(155, 92, 246, .25));
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .2);
+}
+
+.titulo-pagina .icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, .24), rgba(236, 72, 153, .16));
+    border: 1px solid var(--cor-borda, rgba(155, 92, 246, .25));
+    font-size: 27px;
+}
+
+.titulo-pagina h1 {
+    margin: 0 0 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(25px, 4vw, 34px);
+    font-weight: 700;
+    background: linear-gradient(135deg, #9b5cf6, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.titulo-pagina p {
+    margin: 0;
+    color: var(--cor-texto-suave, #a9a3c2);
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+/* ==========================================================
+   CRIAR PUBLICAÇÃO
+   ========================================================== */
+
+.criar-postagem-area {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 30px 0;
+    padding: 26px;
+    background: linear-gradient(145deg, rgba(26, 21, 51, .97), rgba(21, 18, 42, .97));
+    border: 1px solid var(--cor-borda, rgba(155, 92, 246, .25));
+    border-radius: var(--raio-borda, 16px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .2);
+}
+
+.criar-postagem-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.criar-postagem-texto {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.criar-postagem-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, .24), rgba(236, 72, 153, .16));
+    border: 1px solid var(--cor-borda, rgba(155, 92, 246, .25));
+    font-size: 25px;
+}
+
+.criar-postagem-texto h2 {
+    margin: 0 0 5px;
+    color: var(--cor-texto, #f3f1fb);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+}
+
+.criar-postagem-texto p {
+    margin: 0;
+    color: var(--cor-texto-suave, #a9a3c2);
+    font-size: .88rem;
+    line-height: 1.6;
+}
+
+/* Formulário */
+
+.campo-publicacao {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.campo-publicacao label {
+    display: block;
+    color: var(--cor-texto, #f3f1fb);
+    font-size: .95rem;
+    font-weight: 700;
+}
+
+.campo-publicacao textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 155px;
+    padding: 15px;
+    border: 1px solid rgba(155, 92, 246, .25);
+    border-radius: 12px;
+    background: #0d0b18;
+    color: var(--cor-texto, #f3f1fb);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    resize: vertical;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.campo-publicacao textarea::placeholder {
+    color: #827b9e;
+    opacity: 1;
+}
+
+.campo-publicacao textarea:focus {
+    outline: none;
+    border-color: var(--cor-roxo, #9b5cf6);
+    box-shadow: 0 0 0 3px rgba(155, 92, 246, .15);
+}
+
+.rodape-textarea {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    color: var(--cor-texto-suave, #a9a3c2);
+    font-size: .75rem;
+    line-height: 1.6;
+}
+
+/* Botão publicar */
+
+.acoes-publicacao {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.botao-enviar-publicacao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--gradiente-destaque, linear-gradient(135deg, #7c3aed, #ec4899));
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, .22);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.botao-enviar-publicacao:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(236, 72, 153, .2);
+    filter: brightness(1.1);
+}
+
+.botao-enviar-publicacao:active {
+    transform: translateY(0);
+}
+
+.botao-enviar-publicacao:focus-visible {
+    outline: 2px solid var(--cor-roxo, #9b5cf6);
+    outline-offset: 4px;
+}
+
+/* Mensagem de erro */
+
+.mensagem-publicacao {
+    margin: 20px 0;
+    padding: 13px 16px;
+    border: 1px solid rgba(236, 72, 153, .3);
+    border-radius: 10px;
+    background: rgba(236, 72, 153, .08);
+    color: #f9a8d4;
+    font-size: .9rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================
+   MINHAS POSTAGENS
+   ========================================================== */
+
+.minhas-postagens {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 850px;
+    margin: 45px auto;
+}
+
+.minhas-postagens-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 24px;
+}
+
+.minhas-postagens-cabecalho h2 {
+    margin: 0 0 6px;
+    color: var(--cor-roxo, #9b5cf6);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.6rem;
+}
+
+.minhas-postagens-cabecalho p {
+    margin: 0;
+    color: var(--cor-texto-suave, #a9a3c2);
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+.contador-postagens {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 13px;
+    border: 1px solid var(--cor-borda, rgba(155, 92, 246, .25));
+    border-radius: 999px;
+    background: rgba(155, 92, 246, .1);
+    color: var(--cor-roxo, #9b5cf6);
+    font-size: .78rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Lista */
+
+.minhas-postagens .lista-postagens {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+}
+
+/* Cartão da publicação */
+
+.minhas-postagens .post-card {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 25px;
+    margin: 0;
+    background: linear-gradient(145deg, rgba(26, 21, 51, .97), rgba(21, 18, 42, .97));
+    border: 1px solid var(--cor-borda, rgba(155, 92, 246, .25));
+    border-radius: var(--raio-borda, 16px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+    overflow-wrap: anywhere;
+    transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.minhas-postagens .post-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(155, 92, 246, .6);
+    box-shadow: 0 15px 40px rgba(155, 92, 246, .12);
+}
+
+/* Cabeçalho do cartão */
+
+.post-autor-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.minhas-postagens .post-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.minhas-postagens .post-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cor-roxo-forte, #7c3aed), var(--cor-rosa, #ec4899));
+    border: 1px solid rgba(255, 255, 255, .08);
+    font-size: 21px;
+    box-shadow: 0 5px 15px rgba(155, 92, 246, .2);
+}
+
+.minhas-postagens .post-cabecalho h2 {
+    margin: 0;
+    color: var(--cor-texto, #f3f1fb);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+}
+
+.minhas-postagens .post-data {
+    display: block;
+    margin-top: 4px;
+    color: var(--cor-texto-suave, #a9a3c2);
+    font-size: .78rem;
+    line-height: 1.6;
+}
+
+/* Etiqueta */
+
+.post-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border: 1px solid var(--cor-borda, rgba(155, 92, 246, .25));
+    border-radius: 999px;
+    background: rgba(155, 92, 246, .08);
+    color: var(--cor-roxo, #9b5cf6);
+    font-size: .72rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Conteúdo */
+
+.minhas-postagens .post-conteudo {
+    padding: 0 0 20px;
+    overflow-wrap: anywhere;
+}
+
+.minhas-postagens .post-texto {
+    margin: 0;
+    color: var(--cor-texto-suave, #c4bfd8);
+    font-family: 'Inter', sans-serif;
+    font-size: .95rem;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+/* Rodapé */
+
+.post-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(155, 92, 246, .15);
+    color: var(--cor-texto-suave, #a9a3c2);
+    font-size: .77rem;
+}
+
+.post-rodape > span:first-child {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ponto-publicacao {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #86efac;
+    box-shadow: 0 0 10px rgba(134, 239, 172, .35);
+}
+
+.post-id {
+    color: var(--cor-roxo, #9b5cf6);
+    font-weight: 600;
+}
+
+/* Estado vazio */
+
+.postagens-vazias {
+    padding: 40px 25px;
+    text-align: center;
+    background: linear-gradient(145deg, rgba(26, 21, 51, .95), rgba(21, 18, 42, .95));
+    border: 1px solid var(--cor-borda, rgba(155, 92, 246, .25));
+    border-radius: var(--raio-borda, 16px);
+}
+
+.postagens-vazias-icone {
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+}
+
+.postagens-vazias h3 {
+    margin: 0 0 10px;
+    color: var(--cor-texto, #f3f1fb);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+}
+
+.postagens-vazias p {
+    max-width: 430px;
+    margin: 0 auto;
+    color: var(--cor-texto-suave, #a9a3c2);
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+   ========================================================== */
+
+@media (max-width: 600px) {
+    .conteudo {
+        width: calc(100% - 24px);
+        margin: 25px auto;
+        padding-bottom: 30px;
+    }
+
+    .titulo-pagina {
+        align-items: flex-start;
+        gap: 13px;
+        padding: 20px 16px;
+    }
+
+    .titulo-pagina .icone {
+        width: 46px;
+        height: 46px;
+        font-size: 23px;
+    }
+
+    .titulo-pagina h1 {
+        font-size: 1.5rem;
+    }
+
+    .titulo-pagina p {
+        font-size: .84rem;
+    }
+
+    .criar-postagem-area {
+        padding: 18px;
+    }
+
+    .criar-postagem-cabecalho {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .criar-postagem-texto {
+        align-items: flex-start;
+    }
+
+    .criar-postagem-texto h2 {
+        font-size: 1.1rem;
+    }
+
+    .criar-postagem-texto p {
+        font-size: .82rem;
+    }
+
+    .campo-publicacao textarea {
+        min-height: 140px;
+        font-size: 16px;
+    }
+
+    .rodape-textarea {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .acoes-publicacao {
+        width: 100%;
+    }
+
+    .botao-enviar-publicacao {
+        width: 100%;
+    }
+
+    .minhas-postagens {
+        margin: 35px auto;
+    }
+
+    .minhas-postagens-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .minhas-postagens-cabecalho h2 {
+        font-size: 1.4rem;
+    }
+
+    .minhas-postagens .post-card {
+        padding: 20px;
+    }
+
+    .minhas-postagens .post-cabecalho {
+        gap: 11px;
+        flex-wrap: wrap;
+    }
+
+    .post-autor-info {
+        flex-basis: calc(100% - 65px);
+    }
+
+    .post-etiqueta {
+        margin-left: 59px;
+    }
+
+    .minhas-postagens .post-texto {
+        font-size: .88rem;
+    }
+
+    .post-rodape {
+        font-size: .72rem;
+    }
+
+    .postagens-vazias {
+        padding: 30px 18px;
+    }
+}
+
+/* Acessibilidade */
+
+@media (prefers-reduced-motion: reduce) {
+    .conteudo *,
+    .conteudo *::before,
+    .conteudo *::after {
+        scroll-behavior: auto;
+        animation: none;
+        transition: none;
+    }
+
+    .post-card:hover,
+    .botao-enviar-publicacao:hover {
+        transform: none;
+    }
+}
+
+/* AÇÕES DA PUBLICAÇÃO */
+.acoes-postagem {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+
+.acoes-postagem form {
+    margin: 0;
+}
+
+.botao-excluir-publicacao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 40px;
+    padding: 10px 15px;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    border-radius: 9px;
+    background: rgba(239, 68, 68, 0.10);
+    color: #fca5a5;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.botao-excluir-publicacao:hover {
+    background: rgba(239, 68, 68, 0.20);
+    border-color: rgba(239, 68, 68, 0.65);
+    transform: translateY(-1px);
+}
+
+.botao-excluir-publicacao:focus-visible {
+    outline: 2px solid #f87171;
+    outline-offset: 3px;
+}
+
+/* MENSAGEM DE SUCESSO */
+.mensagem-sucesso {
+    margin: 15px 0;
+    padding: 13px 16px;
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    border-radius: 10px;
+    background: rgba(34, 197, 94, 0.10);
+    color: #86efac;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .acoes-postagem {
+        justify-content: stretch;
+    }
+
+    .acoes-postagem form {
+        width: 100%;
+    }
+
+    .botao-excluir-publicacao {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
