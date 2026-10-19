@@ -1,4 +1,5 @@
 
+
 <?php
 session_start();
 
@@ -10,9 +11,10 @@ if (!isset($_SESSION["usuario_id"])) {
 
 // Conexão com o banco
 // Ajuste o caminho se necessário para o seu projeto.
+
 include "../CriarConta2/conexao.php";
 
-$usuario_id = $_SESSION["usuario_id"];
+$usuario_id = (int) $_SESSION["usuario_id"];
 
 // Busca os dados da conta
 $stmt = $conexao->prepare(
@@ -20,6 +22,10 @@ $stmt = $conexao->prepare(
      FROM usuario
      WHERE id = ?"
 );
+
+if ($stmt === false) {
+    die("Erro na consulta do usuário: " . $conexao->error);
+}
 
 $stmt->bind_param("i", $usuario_id);
 $stmt->execute();
@@ -34,6 +40,10 @@ $stmt = $conexao->prepare(
      FROM perfil
      WHERE usuario_id = ?"
 );
+
+if ($stmt === false) {
+    die("Erro na consulta do perfil: " . $conexao->error);
+}
 
 $stmt->bind_param("i", $usuario_id);
 $stmt->execute();

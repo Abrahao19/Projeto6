@@ -1,4 +1,5 @@
 
+
 <?php
 session_start();
 
@@ -12,13 +13,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $senha = $_POST["senha"] ?? "";
 
     $stmt = $conexao->prepare(
-        "SELECT id, nome, email, senha
-         FROM usuario
-         WHERE email = ?"
-    );
+    "SELECT id, nome, email, senha
+     FROM usuario
+     WHERE email = ?"
+);
 
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
+if ($stmt === false) {
+    die("Erro ao preparar a consulta: " . $conexao->error);
+}
+
+$stmt->bind_param("s", $email);
+$stmt->execute();
 
     $resultado = $stmt->get_result();
     $usuario = $resultado->fetch_assoc();
@@ -92,4 +97,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 </body>
 </html>
-```
