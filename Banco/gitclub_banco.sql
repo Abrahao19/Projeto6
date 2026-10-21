@@ -127,7 +127,8 @@ ALTER TABLE `curtidas_post`
 
 --
 -- Índices de tabela `perfil`
---
+--.
+
 ALTER TABLE `perfil`
   ADD PRIMARY KEY (`usuario_id`);
 
@@ -201,6 +202,10 @@ ALTER TABLE `perfil`
 ALTER TABLE `post`
   ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`);
 COMMIT;
+
+
+-- Dia 20/10 paramos aqui no server linux na etec
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
