@@ -39,7 +39,7 @@ $stmt->execute();
         $stmt->close();
         $conexao->close();
 
-        header("Location: ../perfil/perfil.php");
+        header("Location: ../publicacoes.php");
         exit();
 
     } else {

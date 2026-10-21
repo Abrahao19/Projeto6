@@ -32,7 +32,7 @@ if ($stmt->execute()) {
     $_SESSION["email"] = $email;
 
     // Vai direto para o início
-    header("Location: ../perfil/perfil.php");
+    header("Location: ../publicacoes.php");
     exit();
 
 } else {

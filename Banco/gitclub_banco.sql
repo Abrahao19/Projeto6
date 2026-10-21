@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Out-2026 às 21:16
+-- Tempo de geração: 19/10/2026 às 15:01
 -- Versão do servidor: 10.4.32-MariaDB
--- versão do PHP: 8.0.30
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,31 +24,55 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `perfil`
+-- Estrutura para tabela `comentarios_post`
 --
 
-CREATE TABLE `perfil` (
+CREATE TABLE `comentarios_post` (
   `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL,
-  `foto` varchar(255) DEFAULT NULL,
-  `bio` text DEFAULT NULL,
-  `github` varchar(255) DEFAULT NULL,
-  `visibilidade` enum('publico','privado') DEFAULT 'publico'
+  `conteudo` text NOT NULL,
+  `data_criacao` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `perfil`
---
-
-INSERT INTO `perfil` (`id`, `usuario_id`, `foto`, `bio`, `github`, `visibilidade`) VALUES
-(1, 9, '../uploads/perfis/121928877f748a8c02644de646aa1487.webp', 'sou um cara legal', '', 'publico'),
-(11, 10, '../uploads/perfis/e454bb309335f173b2e165066432b408.jpg', '', '', 'publico'),
-(12, 8, '../uploads/perfis/0b1d6a4b1957ee93d58f0e54ec0a4433.webp', '', '', 'publico');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `post`
+-- Estrutura para tabela `curtidas_post`
+--
+
+CREATE TABLE `curtidas_post` (
+  `id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `data_criacao` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `perfil`
+--
+
+CREATE TABLE `perfil` (
+  `usuario_id` int(11) NOT NULL,
+  `foto` varchar(255) DEFAULT NULL,
+  `bio` text DEFAULT NULL,
+  `github` varchar(255) DEFAULT NULL,
+  `visibilidade` varchar(20) DEFAULT 'publico'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `perfil`
+--
+
+INSERT INTO `perfil` (`usuario_id`, `foto`, `bio`, `github`, `visibilidade`) VALUES
+(4, '', '', '', 'privado');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `post`
 --
 
 CREATE TABLE `post` (
@@ -58,110 +82,124 @@ CREATE TABLE `post` (
   `data_criacao` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `post`
---
-
-INSERT INTO `post` (`id`, `usuario_id`, `conteudo`, `data_criacao`) VALUES
-(1, 10, 'asdsasd', '2026-10-15 18:19:15'),
-(2, 10, 'oi', '2026-10-15 18:25:11'),
-(3, 10, 'oi2', '2026-10-15 18:30:34'),
-(4, 8, 'asd', '2026-10-15 18:56:25'),
-(5, 8, 'oi sou eu dnv', '2026-10-15 19:02:19'),
-(6, 10, 'asdad', '2026-10-15 19:05:48'),
-(7, 10, 'alguma coisa', '2026-10-15 19:09:02');
-
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Estrutura para tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `senha` varchar(150) NOT NULL
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `senha` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `usuario`
+-- Despejando dados para a tabela `usuario`
 --
 
 INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`) VALUES
-(1, 'sda', 'sda@sda', '$2y$10$ksr5Y8aCOMrRRU/iYQYCYu09t7SeAwTV33qcGOe/oq0QzNmiEtnRi'),
-(2, 'sda', 'sda@sda', '$2y$10$mfTnDknJoH/1VQPVXw.kDuS2K4Zxi.eTA/UefCo99d5DJJ2VtJ3Li'),
-(3, 'sda', 'sda@sda', '$2y$10$ityDuRUfqgGZ8O8DxyezF.xAKfHuWBl.53jAaNOUsrtJpeRt1Khd.'),
-(4, 'sda', 'sda@sda', '$2y$10$2IK6ECTP82ZRcVrIVBMY8eXe3edwWYD3hMsYgbRxWfIm5HBJUTDK.'),
-(5, 'sda', 'sda@sda', '$2y$10$c1Ng5ifUkL3HHAQSplViyua.WyLSrSKUt4Manr2pWQOYE0iDm6CoG'),
-(6, 'josney', 'josney@nsei', '$2y$10$iemzi1DnSKMMK03oWIg9IeLSAAqDwPfkuNiMkWvqSaA13hrgbZ8N6'),
-(7, 'jvnq', 'jvnq@etc', '$2y$10$oMyddG.1wHwNxGjQskNIp.GNM3FjsJz5O5kM9ALBDBhvy/vcctjQ.'),
-(8, 'JJ', 'JJ@etec', '$2y$10$XDmCCcaA9mvfn9MpuOHIcOCRtoJjIE.CzxXmr3TN5pwlKu48.78sS'),
-(9, 'JJ', 'JJ@etec', '$2y$10$mlYcSvovmGe.QP07fUeQ7u9PFryA5n70798HrfYrcrt6ZJkeBSpe2'),
-(10, 'josney', 'josney@etc.com', '$2y$10$qQIq0kMg2WQ81pKtH91tKuJXQ8WaFpyjRfz.pwJaDMjf9bvyozy4O'),
-(11, 'eddi', 'edd@etc', '$2y$10$Uv5QsnCwoSujgL82/gmx2u4hxZvF.pQoQtvQsVPIAIG9j.cI72c/i');
+(1, 'wgwgwr', 'sgwgwgwg@bebdvhwbv', '$2y$10$ZPBWfdJAZ/qmNrYd7s3g4elbxpchrwAFFkHSvnTEWAgQL5Zw6BH.O'),
+(2, 'dadasdasdas', 'dacavav@bshvdbvhs', '$2y$10$6AbffYpw3WYqWHb3Pqvl7uUkafQB2d6byHFSYoAUv3EGz5D0jf7pa'),
+(3, 'sbsb', 'sdvsd@bwibv', '$2y$10$pKZADidY71ef3Y0j9SQXj.iZ94vtWB93N0XhoE3K6wKxyaLU/96w2'),
+(4, 'jeff', 'jeff@etc.com', '$2y$10$Z0oCz0EI/v7Ym7ptTB/NFeoEM4bsclQMH9aby79ZkOIDrQduEsCtC'),
+(5, 'jj', 'jj@etc.com', '$2y$10$7ffOp7pW/sbw.Om7QW82iuhS90p7k5P5EcbfFpHpLv1C5RAzrNuFW'),
+(6, 'cj', 'cj@etc.com', '$2y$10$XHcUiujhNtGyFAzqeooObuK2JhHs7IzFvBivzDb/hntBv/SjeACAy');
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `perfil`
+-- Índices de tabela `comentarios_post`
 --
-ALTER TABLE `perfil`
+ALTER TABLE `comentarios_post`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `usuario_id` (`usuario_id`);
+  ADD KEY `post_id` (`post_id`);
 
 --
--- Índices para tabela `post`
+-- Índices de tabela `curtidas_post`
+--
+ALTER TABLE `curtidas_post`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `curtida_unica` (`post_id`,`usuario_id`);
+
+--
+-- Índices de tabela `perfil`
+--
+ALTER TABLE `perfil`
+  ADD PRIMARY KEY (`usuario_id`);
+
+--
+-- Índices de tabela `post`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`id`),
   ADD KEY `usuario_id` (`usuario_id`);
 
 --
--- Índices para tabela `usuario`
+-- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `perfil`
+-- AUTO_INCREMENT de tabela `comentarios_post`
 --
-ALTER TABLE `perfil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+ALTER TABLE `comentarios_post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `curtidas_post`
+--
+ALTER TABLE `curtidas_post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `perfil`
+-- Restrições para tabelas `comentarios_post`
+--
+ALTER TABLE `comentarios_post`
+  ADD CONSTRAINT `comentarios_post_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`) ON DELETE CASCADE;
+
+--
+-- Restrições para tabelas `curtidas_post`
+--
+ALTER TABLE `curtidas_post`
+  ADD CONSTRAINT `curtidas_post_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`) ON DELETE CASCADE;
+
+--
+-- Restrições para tabelas `perfil`
 --
 ALTER TABLE `perfil`
   ADD CONSTRAINT `perfil_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`);
 
 --
--- Limitadores para a tabela `post`
+-- Restrições para tabelas `post`
 --
 ALTER TABLE `post`
-  ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

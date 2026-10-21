@@ -125,8 +125,7 @@ function formatarData($data) {
                 <h1>Explore o <span>Feed.</span></h1>
 
                 <p>
-                    Descubra projetos, compartilhe ideias e acompanhe
-                    o que a comunidade está criando.
+                    Para publicar, vá para Meu Perfil -> postagens.
                 </p>
             </div>
 
