@@ -71,7 +71,7 @@
         <div class="acoes-header">
 
             <a href="../publicacoes.php" class="botao-voltar">
-                ← Voltar
+                 ← Ir para o feed
             </a>
 
         </div>

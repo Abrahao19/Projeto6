@@ -1250,6 +1250,29 @@ rgba(21, 18, 42, 0.96)
     font-size: 0.78rem;
     font-weight: 600;
 }
+.botao-sair-conta {
+    position: absolute;
+    z-index: 5;
+    right: 25%;
+    padding: 9px 17px;
+    border-radius: 999px;
+    color: var(--cor-texto-suave);
+border: 1px solid var(--cor-borda);
+    background: rgba(255, 255, 255, 0.025);
+text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+   
+}
+
+
+
+
+
 /* ==========================================================
    GRID DOS PROJETOS
    ========================================================== */
@@ -2437,16 +2460,23 @@ linear-gradient(
 }
 
 .feed-mini-avatar {
-    display: grid;
-    place-items: center;
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
     border-radius: 50%;
-    background: var(--gradiente-destaque);
-    color: white;
-    font-weight: 700;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.feed-mini-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
 /* CONTEÚDO PRINCIPAL */
 
 .feed-container {
@@ -2591,7 +2621,7 @@ linear-gradient(
 /* GRID DE PUBLICAÇÕES */
 
 .feed-lista {
-    display: grid;
+     
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
 }
@@ -2962,4 +2992,48 @@ linear-gradient(
 .feed-lista .postagens-vazias .feed-comentar {
     display: inline-flex;
     text-decoration: none;
+}
+
+
+
+
+
+/*
+.feed-perfil-botao .feed-mini-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px;
+    flex: 0 0 40px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.feed-perfil-botao .feed-mini-avatar img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover;
+    display: block;
+}
+
+*/
+.feed-perfil-botao {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.feed-header-acoes .feed-mini-avatar {
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+ 
+.feed-header-acoes .feed-mini-avatar img {
+    transform: translateY(-2px);
+}
+.feed-header-acoes .feed-mini-avatar {
+    position: relative;
+    top: 2px;
 }

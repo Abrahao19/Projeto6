@@ -1,4 +1,6 @@
 
+
+
 <?php
 session_start();
 
@@ -10,6 +12,23 @@ $inicialUsuario = "?";
 
 if (isset($_SESSION["usuario_id"])) {
     $usuarioId = (int) $_SESSION["usuario_id"];
+    // BUSCAR FOTO DO PERFIL
+$fotoPerfil = "";
+
+$sqlFoto = "SELECT foto FROM perfil WHERE usuario_id = ?";
+$stmtFoto = $conexao->prepare($sqlFoto);
+
+if ($stmtFoto) {
+    $stmtFoto->bind_param("i", $usuarioId);
+    $stmtFoto->execute();
+
+    $resultadoFoto = $stmtFoto->get_result();
+    $perfilUsuario = $resultadoFoto->fetch_assoc();
+
+    $fotoPerfil = $perfilUsuario["foto"] ?? "";
+
+    $stmtFoto->close();
+}
 
     $sqlUsuario = "SELECT nome FROM usuario WHERE id = ?";
     $stmtUsuario = $conexao->prepare($sqlUsuario);
@@ -100,16 +119,28 @@ function formatarData($data) {
         <a href="posts/postagens.php" class="logo-heroi">
             Git <span>Club</span>
         </a>
-
+         
         <!-- MEU PERFIL -->
-        <div class="feed-header-acoes">
-            <a href="perfil/perfil.php" class="feed-perfil-botao">
-                <span class="feed-mini-avatar">
-                <?= escapar($inicialUsuario) ?>
-                </span><span>Meu perfil</span>
-            </a>
-        </div>
+<div class="feed-header-acoes">
+    <a href="perfil/perfil.php" class="feed-perfil-botao">
 
+    <span class="feed-mini-avatar">
+    <?php if (!empty($fotoPerfil)): ?>
+       <img
+    src="<?= escapar(preg_replace('#^\.\./#', '', $fotoPerfil)) ?>"
+    alt="Foto de perfil"
+    width="40"
+    height="40"
+    style="width: 40px; height: 40px; object-fit: cover; border-radius: 40%; display: block;"
+>
+    <?php else: ?>
+        <?= escapar($inicialUsuario) ?>
+    <?php endif; ?>
+</span>
+<span>Meu perfil</span>
+    </a>
+</div>
+ 
     </header>
 
     <main class="feed-container">
@@ -164,7 +195,9 @@ function formatarData($data) {
             </div>
 
             <!-- LISTA DINÂMICA DE PUBLICAÇÕES -->
+            
             <div class="feed-lista">
+
 
                 <?php if ($erroBanco): ?>
 
@@ -223,40 +256,39 @@ function formatarData($data) {
                                 </span>
 
                             </div>
-
-                            <!-- CONTEÚDO -->
+                            
+                           <!-- CONTEÚDO -->
                             <div class="feed-card-conteudo">
 
-                                <h3>
-                                    Publicação #<?= $idPost ?>
-                                </h3>
+                            <h3>
+                                Publicação #<?= $idPost ?>
+                            </h3>
 
-                                <p class="feed-texto-publicacao"><?=
-                                    nl2br(
-                                        escapar($conteudo)
-                                    )
-                                ?></p>
+                            <p class="feed-texto-publicacao"><?=
+                            nl2br(escapar($conteudo))
+                            ?></p>
 
                             </div>
+                            
 
                             <!-- RODAPÉ -->
-                            <div class="feed-card-rodape">
+<div class="feed-card-rodape">
 
-                                <span class="feed-card-categoria">
-                                    Publicação da comunidade
-                                </span>
+    <span class="feed-card-categoria">
+        Publicação da comunidade
+    </span>
 
-                                <a
-                                    href="comentarios/comentar.php?post_id=<?= $idPost ?>"
-                                    class="feed-comentar"
-                                >
-                                    💬 Comentar
-                                </a>
+    <a
+        href="comentarios/ver_comentarios.php?post_id=<?= $idPost ?>"
+        class="feed-comentar"
+    >
+        💬 Comentar
+    </a>
 
-                            </div>
+</div>
 
-                        </article>
-
+</article>
+<br>
                     <?php endwhile; ?>
 
                 <?php else: ?>

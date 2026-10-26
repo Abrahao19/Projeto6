@@ -83,6 +83,9 @@ $github = $perfil["github"] ?? "";
 
     <header class="cabecalho-heroi">
 
+     
+
+
         <!-- LOGO -->
 
         <div class="logo-heroi">
@@ -136,7 +139,7 @@ $github = $perfil["github"] ?? "";
         <div class="acoes-header">
 
             <a href="../publicacoes.php" class="botao-voltar">
-                ← Voltar
+                ← Ir para o feed
             </a>
 
         </div>
@@ -159,6 +162,9 @@ $github = $perfil["github"] ?? "";
             <span class="icone">
                 👤
             </span>
+<a href="../feed.php" class="botao-sair-conta">
+                Sair da Conta
+            </a>
 
             <div>
 
