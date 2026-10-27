@@ -20,7 +20,7 @@ $sql = "SELECT
             p.id AS post_id,
             p.conteudo AS conteudo_publicacao,
             u.nome AS autor_publicacao
-        FROM comentario c
+        FROM comentarios_post c
         INNER JOIN post p
             ON c.post_id = p.id
         INNER JOIN usuario u
@@ -38,7 +38,6 @@ $stmtComentarios->bind_param("i", $usuarioId);
 $stmtComentarios->execute();
 
 $resultadoMeusComentarios = $stmtComentarios->get_result();
-//
 ?>
 
 
