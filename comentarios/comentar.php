@@ -21,53 +21,58 @@ $post_id = filter_input(INPUT_POST, "post_id", FILTER_VALIDATE_INT);
 $conteudo = trim($_POST["conteudo"] ?? "");
 
 // Valida os dados recebidos
-if (!$post_id || $conteudo === "") {
+if (!$post_id || $conteudo === "" || mb_strlen($conteudo) > 2000) {
     header("Location: ../publicacoes.php");
     exit;
 }
 
-// Salva o comentário no banco
-$sql = "INSERT INTO comentario
+// Verifica se a publicação existe
+$sqlPost = "SELECT id FROM post WHERE id = ?";
+
+$stmtPost = $conexao->prepare($sqlPost);
+
+if (!$stmtPost) {
+    error_log("Erro ao preparar consulta da publicação: " . $conexao->error);
+    exit("Não foi possível verificar a publicação.");
+}
+
+$stmtPost->bind_param("i", $post_id);
+$stmtPost->execute();
+
+$publicacaoExiste = $stmtPost->get_result()->num_rows > 0;
+$stmtPost->close();
+
+if (!$publicacaoExiste) {
+    exit("Publicação não encontrada.");
+}
+
+// Salva o comentário na tabela correta
+$sql = "INSERT INTO comentarios_post
         (usuario_id, post_id, conteudo)
         VALUES (?, ?, ?)";
 
 $stmt = $conexao->prepare($sql);
 
 if (!$stmt) {
-    exit("Erro ao preparar o comentário.");
+    error_log("Erro ao preparar comentário: " . $conexao->error);
+    exit("Não foi possível preparar o comentário. Verifique a configuração do banco.");
 }
 
 $stmt->bind_param("iis", $usuario_id, $post_id, $conteudo);
 
 if ($stmt->execute()) {
     $stmt->close();
+    $conexao->close();
 
-    header(
-        "Location: ver_comentarios.php?post_id=" . $post_id
-    );
+    header("Location: ver_comentarios.php?post_id=" . $post_id);
     exit;
 }
 
+// Registra o erro no log do servidor
+error_log("Erro ao salvar comentário: " . $stmt->error);
+
 $stmt->close();
+$conexao->close();
+
 exit("Não foi possível salvar o comentário.");
 ?>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Git Club - Feed</title>
-<link rel="stylesheet" href="../style.css">
-</head>
-<body>
-
-  <header class="cabecalho-heroi">
-    <span class="logo-heroi"></span>
-    <h1><br>Comentarios</h1> 
-    <p class="heroi-subtitulo"></p>
-
-    <div class="heroi-botoes">
-      <a href="../publicacoes.php" class="botao-login botao-login--destaque"> < voltar</a>
-    </div>
-  </header>

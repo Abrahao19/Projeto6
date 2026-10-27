@@ -162,8 +162,14 @@ $github = $perfil["github"] ?? "";
             <span class="icone">
                 👤
             </span>
-<a href="../feed.php" class="botao-sair-conta">
-                Sair da Conta
+
+        <a href="../feed.php"
+        class="botao-sair-conta"
+        onclick="return confirm('Tem certeza que deseja sair da sua conta?');">
+        <span class="icone-sair">↪</span>
+        <span>Sair da conta</span>
+           </a>
+
             </a>
 
             <div>

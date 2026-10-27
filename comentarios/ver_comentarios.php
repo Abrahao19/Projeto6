@@ -70,6 +70,7 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -77,7 +78,7 @@ $resultado = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GitClub - Comentários</title>
+    <title>Git Club - Conversa</title>
 
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -87,7 +88,7 @@ $resultado = $stmt->get_result();
 <header class="cabecalho-heroi">
 
     <a href="../publicacoes.php" class="logo-heroi">
-        Git <span>Club</span>
+        <span>Git</span> Club
     </a>
 
     <a href="../publicacoes.php" class="botao-voltar">
@@ -96,30 +97,70 @@ $resultado = $stmt->get_result();
 
 </header>
 
-<main class="conteudo">
+<main class="conteudo pagina-conversa">
 
-    <section class="comentarios-secao">
+    <!-- CABEÇALHO DA PÁGINA -->
 
-        <h1>Comentários</h1>
+    <div class="titulo-pagina conversa-titulo">
 
-        <h2>
-            Publicação de
-            <?= htmlspecialchars($post["nome"], ENT_QUOTES, "UTF-8") ?>
-        </h2>
+        <span class="icone">💬</span>
 
-        <p>
+        <div>
+            <h1>Conversa da publicação</h1>
+            <p>Compartilhe ideias e interaja com a comunidade.</p>
+        </div>
+
+    </div>
+
+    <!-- PUBLICAÇÃO ORIGINAL -->
+
+    <section class="conversa-publicacao">
+
+        <div class="conversa-secao-titulo">
+            <span>📌</span>
+            <h2>Publicação original</h2>
+        </div>
+
+        <div class="conversa-autor">
+            <div class="conversa-avatar">
+                <?= htmlspecialchars(
+                    strtoupper(substr($post["nome"], 0, 1)),
+                    ENT_QUOTES,
+                    "UTF-8"
+                ) ?>
+            </div>
+
+            <div>
+                <strong>
+                    <?= htmlspecialchars(
+                        $post["nome"],
+                        ENT_QUOTES,
+                        "UTF-8"
+                    ) ?>
+                </strong>
+
+                <small>Autor da publicação</small>
+            </div>
+        </div>
+
+        <div class="conversa-texto-publicacao">
             <?= nl2br(htmlspecialchars(
                 $post["conteudo"],
                 ENT_QUOTES,
                 "UTF-8"
             )) ?>
-        </p>
+        </div>
 
     </section>
 
-    <section class="comentarios-secao">
+    <!-- FORMULÁRIO DE COMENTÁRIO -->
 
-        <h2>Escreva um comentário</h2>
+    <section class="conversa-formulario">
+
+        <div class="conversa-secao-titulo">
+            <span>✍️</span>
+            <h2>Deixe seu comentário</h2>
+        </div>
 
         <form action="comentar.php" method="POST">
 
@@ -129,95 +170,150 @@ $resultado = $stmt->get_result();
                 value="<?= (int) $postId ?>"
             >
 
+            <label for="conteudo-comentario">
+                Sua mensagem
+            </label>
+
             <textarea
+                id="conteudo-comentario"
                 name="conteudo"
-                placeholder="Escreva seu comentário..."
+                placeholder="O que você achou desta publicação?"
                 maxlength="2000"
                 required
             ></textarea>
 
-            <button type="submit">
-                Enviar comentário
-            </button>
+            <div class="conversa-formulario-rodape">
+                <small>Compartilhe sua opinião com respeito.</small>
+
+                <button type="submit" class="conversa-botao-enviar">
+                    Enviar comentário →
+                </button>
+            </div>
 
         </form>
 
     </section>
 
-    <section class="comentarios-secao">
+    <!-- COMENTÁRIOS DA COMUNIDADE -->
 
-        <h2>Comentários da comunidade</h2>
+    <section class="conversa-lista">
+
+        <div class="conversa-lista-cabecalho">
+            <div class="conversa-secao-titulo">
+                <span>🗨️</span>
+                <h2>Comentários da comunidade</h2>
+            </div>
+        </div>
 
         <?php if ($resultado->num_rows > 0): ?>
 
-            <?php while ($comentario = $resultado->fetch_assoc()): ?>
+            <div class="conversa-comentarios">
 
-                <?php if (
-                    (int) $comentario["usuario_id"] ===
-                    (int) $_SESSION["usuario_id"]
-                ): ?>
+                <?php while ($comentario = $resultado->fetch_assoc()): ?>
 
-                    <form
-                        action="excluir_comentario.php"
-                        method="POST"
-                        onsubmit="return confirm('Deseja realmente excluir este comentário?');"
-                    >
+                    <article class="conversa-comentario">
 
-                        <input
-                            type="hidden"
-                            name="comentario_id"
-                            value="<?= (int) $comentario["id"] ?>"
-                        >
+                        <div class="conversa-comentario-avatar">
+                            <?= htmlspecialchars(
+                                strtoupper(substr(
+                                    $comentario["nome_usuario"],
+                                    0,
+                                    1
+                                )),
+                                ENT_QUOTES,
+                                "UTF-8"
+                            ) ?>
+                        </div>
 
-                        <input
-                            type="hidden"
-                            name="post_id"
-                            value="<?= (int) $postId ?>"
-                        >
+                        <div class="conversa-comentario-corpo">
 
-                        <button type="submit" class="botao-excluir">
-                            🗑️ Excluir
-                        </button>
+                            <div class="conversa-comentario-cabecalho">
 
-                    </form>
+                                <div class="conversa-comentario-autor">
+                                    <strong>
+                                        <?= htmlspecialchars(
+                                            $comentario["nome_usuario"],
+                                            ENT_QUOTES,
+                                            "UTF-8"
+                                        ) ?>
+                                    </strong>
 
-                <?php endif; ?>
+                                    <small>
+                                        <?= htmlspecialchars(
+                                            $comentario["data_criacao"],
+                                            ENT_QUOTES,
+                                            "UTF-8"
+                                        ) ?>
+                                    </small>
+                                </div>
 
-                <article class="comentario-item">
+                                <?php if (
+                                    (int) $comentario["usuario_id"] ===
+                                    (int) $_SESSION["usuario_id"]
+                                ): ?>
 
-                    <strong>
-                        <?= htmlspecialchars(
-                            $comentario["nome_usuario"],
-                            ENT_QUOTES,
-                            "UTF-8"
-                        ) ?>
-                    </strong>
+                                    <form
+                                        class="conversa-form-excluir"
+                                        action="excluir_comentario.php"
+                                        method="POST"
+                                        onsubmit="return confirm('Deseja realmente excluir este comentário?');"
+                                    >
 
-                    <p>
-                        <?= nl2br(htmlspecialchars(
-                            $comentario["conteudo"],
-                            ENT_QUOTES,
-                            "UTF-8"
-                        )) ?>
-                    </p>
+                                        <input
+                                            type="hidden"
+                                            name="comentario_id"
+                                            value="<?= (int) $comentario["id"] ?>"
+                                        >
 
-                    <small>
-                        <?= htmlspecialchars(
-                            $comentario["data_criacao"],
-                            ENT_QUOTES,
-                            "UTF-8"
-                        ) ?>
-                    </small>
+                                        <input
+                                            type="hidden"
+                                            name="post_id"
+                                            value="<?= (int) $postId ?>"
+                                        >
 
-                </article>
+                                        <button
+                                            type="submit"
+                                            class="conversa-botao-excluir"
+                                            aria-label="Excluir seu comentário"
+                                            title="Excluir comentário"
+                                        >
+                                            🗑 Excluir
+                                        </button>
 
-                <hr>
+                                    </form>
 
-            <?php endwhile; ?>
+                                <?php endif; ?>
+
+                            </div>
+
+                            <p class="conversa-comentario-texto">
+                                <?= nl2br(htmlspecialchars(
+                                    $comentario["conteudo"],
+                                    ENT_QUOTES,
+                                    "UTF-8"
+                                )) ?>
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                <?php endwhile; ?>
+
+            </div>
 
         <?php else: ?>
 
-            <p>Essa publicação ainda não tem comentários.</p>
+            <div class="conversa-vazia">
+                <span>💬</span>
+
+                <h3>Nenhum comentário por aqui ainda</h3>
+
+                <p>
+                    Seja a primeira pessoa a comentar nesta publicação
+                    e comece a conversa!
+                </p>
+            </div>
 
         <?php endif; ?>
 

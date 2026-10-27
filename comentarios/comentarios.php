@@ -186,78 +186,133 @@ $resultadoMeusComentarios = $stmt->get_result()
 
 
         
-<section class="comentarios-secao">
 
-    <h2>Comentários que escrevi</h2>
+<section class="comentarios-secao comentarios-meus">
+
+    <div class="comentarios-cabecalho">
+        <div>
+            <span class="comentarios-etiqueta">SUA ATIVIDADE</span>
+            <h2>Meus comentários</h2>
+            <p>Acompanhe suas conversas na comunidade.</p>
+        </div>
+
+        <span class="comentarios-icone">💬</span>
+    </div>
 
     <?php if ($resultadoMeusComentarios->num_rows > 0): ?>
 
-        <?php while ($comentario = $resultadoMeusComentarios->fetch_assoc()): ?>
+        <div class="comentarios-lista">
 
-<form action="excluir_comentario.php" method="POST"
-      onsubmit="return confirm('Tem certeza que deseja excluir este comentário?');">
+            <?php while ($comentario = $resultadoMeusComentarios->fetch_assoc()): ?>
 
-    <input
-        type="hidden"
-        name="comentario_id"
-        value="<?= (int) $comentario['id'] ?>"
-    >
+                <article class="comentario-item">
 
-    <button type="submit" class="botao-excluir">
-        🗑️ Excluir comentário
-    </button>
+                    <div class="comentario-topo">
+                        <div class="comentario-avatar">
+                            💬
+                        </div>
 
-</form>
+                        <div class="comentario-identificacao">
+                            <span class="comentario-titulo">
+                                Seu comentário
+                            </span>
 
-            <article class="comentario-item">
+                            <small>
+                                <?= htmlspecialchars(
+                                    $comentario["data_criacao"],
+                                    ENT_QUOTES,
+                                    "UTF-8"
+                                ) ?>
+                            </small>
+                        </div>
+                    </div>
 
-                <p>
-                    <?= nl2br(htmlspecialchars(
-                        $comentario["conteudo"],
-                        ENT_QUOTES,
-                        "UTF-8"
-                    )) ?>
-                </p>
+                    <div class="comentario-texto">
+                        <?= nl2br(htmlspecialchars(
+                            $comentario["conteudo"],
+                            ENT_QUOTES,
+                            "UTF-8"
+                        )) ?>
+                    </div>
 
-                <small>
-                    Data: <?= htmlspecialchars($comentario["data_criacao"]) ?>
-                </small>
+                    <div class="comentario-publicacao">
+                        <span class="publicacao-etiqueta">
+                            PUBLICAÇÃO ORIGINAL
+                        </span>
 
-                <p>
-                    Comentário na publicação de
-                    <strong>
-                        <?= htmlspecialchars($comentario["autor_publicacao"]) ?>
-                    </strong>
-                </p>
+                        <p class="comentario-autor">
+                            Publicação de
+                            <strong>
+                                <?= htmlspecialchars(
+                                    $comentario["autor_publicacao"],
+                                    ENT_QUOTES,
+                                    "UTF-8"
+                                ) ?>
+                            </strong>
+                        </p>
 
-                <p>
-                    Publicação:
-                    <?= nl2br(htmlspecialchars(
-                        $comentario["conteudo_publicacao"],
-                        ENT_QUOTES,
-                        "UTF-8"
-                    )) ?>
-                </p>
+                        <p class="comentario-conteudo-original">
+                            <?= nl2br(htmlspecialchars(
+                                $comentario["conteudo_publicacao"],
+                                ENT_QUOTES,
+                                "UTF-8"
+                            )) ?>
+                        </p>
+                    </div>
 
-                <a href="ver_comentarios.php?post_id=<?= (int) $comentario["post_id"] ?>">
-                    Ver conversa
-                </a>
+                    <div class="comentario-acoes">
 
-            </article>
+                        <a
+                            href="ver_comentarios.php?post_id=<?= (int) $comentario["post_id"] ?>"
+                            class="botao-ver-conversa"
+                        >
+                            Ver conversa <span aria-hidden="true">→</span>
+                        </a>
 
-            <hr>
+                        <form
+                            action="excluir_comentario.php"
+                            method="POST"
+                            onsubmit="return confirm('Tem certeza que deseja excluir este comentário?');"
+                        >
+                            <input
+                                type="hidden"
+                                name="comentario_id"
+                                value="<?= (int) $comentario["id"] ?>"
+                            >
 
-        <?php endwhile; ?>
+                            <button
+                                type="submit"
+                                class="botao-excluir"
+                            >
+                                🗑️ Excluir comentário
+                            </button>
+                        </form>
+
+                    </div>
+
+                </article>
+
+            <?php endwhile; ?>
+
+        </div>
 
     <?php else: ?>
 
-        <p>Você ainda não escreveu nenhum comentário.</p>
+        <div class="comentarios-vazio">
+            <span>💭</span>
 
-        <a href="../publicacoes.php">
-            Explorar publicações
-        </a>
+            <h3>Nenhum comentário por aqui</h3>
+
+            <p>
+                Você ainda não escreveu comentários.
+                Participe das conversas da comunidade!
+            </p>
+
+            <a href="../publicacoes.php">
+                Explorar publicações →
+            </a>
+        </div>
 
     <?php endif; ?>
 
 </section>
-
