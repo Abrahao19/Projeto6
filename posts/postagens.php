@@ -128,7 +128,7 @@ $totalPostagens = $resultado->num_rows;
 
         <nav class="menu-navegacao">
 
-            <a href="../projetos/projetos.php">Projetos</a>
+            <a href="../projetos/projetos.php">Mensagens</a>
             <a href="../comentarios/comentarios.php">Comentários</a>
             <a href="../curtidas/curtidas.php">Curtidas</a>
             <a href="../seguidores/seguidores.php">Seguidores</a>

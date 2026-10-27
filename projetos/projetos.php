@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Git Club - Projetos</title>
+    <title>Git Club - Mensagens</title>
 
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -28,7 +28,7 @@
         <nav class="menu-navegacao">
 
             <a href="../projetos/projetos.php" class="ativo">
-                Projetos
+                Mensagens
             </a>
 
             <a href="../comentarios/comentarios.php">
@@ -90,10 +90,10 @@
 
             <div>
 
-                <h1>Projetos</h1>
+                <h1>Mensagens</h1>
 
                 <p>
-                    Confira os projetos publicados no Git Club.
+                    Ainda em desenvolvimento
                 </p>
 
             </div>
@@ -118,10 +118,10 @@
 
                 <div class="projeto-info">
 
-                    <h2>Minecraft 2</h2>
+                    <h2>Nada para ver aqui...</h2>
 
                     <p>
-                        Projeto de desenvolvimento de jogo.
+                        Em breve em funcionamento!
                     </p>
 
                     <span class="status publico">
@@ -133,29 +133,6 @@
             </div>
 
 
-            <!-- PROJETO 2 -->
-
-            <div class="projeto-card">
-
-                <div class="projeto-icone">
-                    🚗
-                </div>
-
-                <div class="projeto-info">
-
-                    <h2>GTA 6</h2>
-
-                    <p>
-                        Projeto privado em desenvolvimento.
-                    </p>
-
-                    <span class="status privado">
-                        🔒 Privado
-                    </span>
-
-                </div>
-
-            </div>
 
 
         </section>

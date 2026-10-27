@@ -98,7 +98,7 @@ $github = $perfil["github"] ?? "";
         <nav class="menu-navegacao">
 
             <a href="../projetos/projetos.php">
-                Projetos
+                Mensagens
             </a>
 
             <a href="../comentarios/comentarios.php">

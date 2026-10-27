@@ -107,7 +107,7 @@ $resultadoMeusComentarios = $stmt->get_result()
         <nav class="menu-navegacao">
 
             <a href="../projetos/projetos.php">
-                Projetos
+                Mensagens
             </a>
 
             <!-- PÁGINA ATUAL -->

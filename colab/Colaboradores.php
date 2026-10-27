@@ -16,14 +16,14 @@
 
         <!-- Logo -->
         <div class="logo-heroi">
-            Git Club
+            <span>Git</span> Club
         </div>
 
         <!-- Navegação -->
         <nav class="menu-navegacao" aria-label="Navegação principal">
 
             <a href="../projetos/projetos.php">
-                Projetos
+                Mensagens
             </a>
 
             <a href="../comentarios/comentarios.php">

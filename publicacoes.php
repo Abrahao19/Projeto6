@@ -117,7 +117,7 @@ function formatarData($data) {
 
         <!-- LOGO -->
         <a href="posts/postagens.php" class="logo-heroi">
-            Git <span>Club</span>
+          <span>Git</span> Club
         </a>
          
         <!-- MEU PERFIL -->
